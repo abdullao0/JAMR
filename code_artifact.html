@@ -1,0 +1,2813 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>جمر | JAMR — ملحمة الشوي المختصة • الرياض</title>
+
+  <!-- Google Fonts: Cairo & Tajawal -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        screens: {
+          'xs': '480px',
+          'sm': '640px',
+          'md': '768px',
+          'lg': '1024px',
+          'xl': '1280px',
+          '2xl': '1536px',
+        },
+        extend: {
+          fontFamily: {
+            heading: ['Cairo', 'Tajawal', 'sans-serif'],
+            sans: ['Cairo', 'Tajawal', 'sans-serif'],
+            body: ['Tajawal', 'Cairo', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* ==========================================================================
+       DUAL-THEME DESIGN TOKENS
+       Default Light Mode: Warm Craft Butcher (#FAF6F0, #8B261D)
+       Toggleable Dark Mode: Dark Smokehouse Luxury (#12100E, #E05A2B, #D4A359)
+       ========================================================================== */
+    :root {
+      --bg-primary: #FAF6F0;
+      --bg-card: #FFFFFF;
+      --bg-secondary: #F3ECE1;
+      --bg-elevated: rgba(250, 246, 240, 0.92);
+      --border-subtle: #E6DDD0;
+      --border-strong: #D5C7B4;
+      --text-primary: #1E1B18;
+      --text-muted: #6B6259;
+      --accent-primary: #8B261D;
+      --accent-hover: #6E1D16;
+      --accent-soft: rgba(139, 38, 29, 0.08);
+      --accent-gold: #B47B38;
+      --accent-gold-soft: rgba(180, 123, 56, 0.12);
+      --shadow-card: 0 10px 28px -10px rgba(30, 27, 24, 0.08);
+      --shadow-ember: 0 10px 24px -6px rgba(139, 38, 29, 0.28);
+    }
+
+    html.dark {
+      --bg-primary: #12100E;
+      --bg-card: #1C1917;
+      --bg-secondary: #26221F;
+      --bg-elevated: rgba(18, 16, 14, 0.92);
+      --border-subtle: #332D29;
+      --border-strong: #473E39;
+      --text-primary: #F5EFE6;
+      --text-muted: #A89F95;
+      --accent-primary: #E05A2B;
+      --accent-hover: #C94B1F;
+      --accent-soft: rgba(224, 90, 43, 0.14);
+      --accent-gold: #D4A359;
+      --accent-gold-soft: rgba(212, 163, 89, 0.15);
+      --shadow-card: 0 14px 34px -10px rgba(0, 0, 0, 0.6);
+      --shadow-ember: 0 12px 28px -6px rgba(224, 90, 43, 0.34);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Cairo', 'Tajawal', sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Token Surface & Color Utilities */
+    .surface-primary { background-color: var(--bg-primary); }
+    .surface-card {
+      background-color: var(--bg-card);
+      border-color: var(--border-subtle);
+      box-shadow: var(--shadow-card);
+    }
+    .surface-secondary { background-color: var(--bg-secondary); }
+    .surface-glass {
+      background-color: var(--bg-elevated);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .border-token { border-color: var(--border-subtle); }
+    .border-token-strong { border-color: var(--border-strong); }
+    .text-token-primary { color: var(--text-primary); }
+    .text-token-muted { color: var(--text-muted); }
+
+    .bg-accent { background-color: var(--accent-primary); }
+    .bg-accent:hover { background-color: var(--accent-hover); }
+    .bg-accent-soft { background-color: var(--accent-soft); }
+    .text-accent { color: var(--accent-primary); }
+
+    .text-gold { color: var(--accent-gold); }
+    .bg-gold-soft { background-color: var(--accent-gold-soft); }
+    .shadow-ember { box-shadow: var(--shadow-ember); }
+
+    /* Fluid Responsive Typography */
+    .hero-title {
+      font-size: clamp(1.75rem, 3.8vw, 3.1rem);
+      line-height: 1.24;
+    }
+    .section-title {
+      font-size: clamp(1.35rem, 2.5vw, 1.95rem);
+      line-height: 1.3;
+    }
+
+    /* Hide Scrollbars on Horizontal Touch Strips */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Subtle Craft Grid Background */
+    .craft-dots {
+      background-image: radial-gradient(var(--border-subtle) 1px, transparent 1px);
+      background-size: 22px 22px;
+    }
+
+    /* Dynamic Viewport Height Helpers for Mobile Drawers & Sheets */
+    .h-dvh-screen {
+      height: 100vh;
+      height: 100dvh;
+    }
+    .max-h-sheet {
+      max-height: 90vh;
+      max-height: 90dvh;
+    }
+
+    /* Fallback Art Container When External Image Fails */
+    .img-fallback-surface {
+      background: linear-gradient(135deg, #2A1B17 0%, #171311 100%);
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(1.18); }
+    }
+    .live-pulse {
+      animation: pulseDot 2.2s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-[#8B261D] selection:text-white dark:selection:bg-[#E05A2B]">
+
+  <!-- ========================================================================
+       1. RESPONSIVE STICKY HEADER
+          - Desktop/Tablet (>=768px): Single sleek row
+          - Mobile (<768px): Clean two-tier compact header (zero clipping at 320px)
+       ======================================================================== -->
+  <header id="siteHeader" class="sticky top-0 z-40 surface-glass border-b border-token transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+
+      <!-- Row 1: Brand Right | Desktop Delivery Pill Center | Theme + Cart Left -->
+      <div class="flex items-center justify-between h-16 md:h-20 gap-2 sm:gap-4">
+
+        <!-- Right (RTL Start): Brand Logo + Ember Line Mark -->
+        <a href="#" class="flex items-center gap-2.5 sm:gap-3 group shrink-0 focus:outline-none">
+          <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-accent text-white flex items-center justify-center shadow-ember transition-transform duration-300 group-hover:scale-105">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-baseline gap-1.5 sm:gap-2">
+              <span class="font-heading text-xl sm:text-2xl md:text-3xl font-black tracking-tight text-token-primary">جمر</span>
+              <span class="text-[10px] sm:text-xs font-extrabold tracking-[0.2em] text-accent uppercase">JAMR</span>
+            </div>
+            <p class="text-[10px] sm:text-xs text-token-muted font-body -mt-1 hidden xs:block">ملحمة الشوي المختصة • الرياض</p>
+          </div>
+        </a>
+
+        <!-- Center (Desktop/Tablet >=768px): Interactive Riyadh Chilled Delivery Slot Pill -->
+        <button
+          onclick="openSlotModal()"
+          type="button"
+          class="hidden md:flex items-center gap-3 px-4 py-2 rounded-2xl surface-card border border-token hover:border-token-strong text-right transition-all duration-200 group max-w-md lg:max-w-lg"
+        >
+          <span class="w-9 h-9 rounded-xl bg-accent-soft text-accent flex items-center justify-center shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/>
+              <path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/>
+            </svg>
+          </span>
+          <div class="leading-tight min-w-0">
+            <div class="flex items-center gap-1.5 text-[11px] text-token-muted font-body">
+              <span class="inline-block w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-400 live-pulse shrink-0"></span>
+              <span class="truncate">الرياض • <span id="desktopNeighborhoodText" class="font-bold text-token-primary">حي الملقا</span> • توصيل مبرد</span>
+            </div>
+            <div class="text-xs lg:text-sm font-bold text-token-primary flex items-center gap-1.5 mt-0.5">
+              <span id="desktopSlotText" class="truncate">الخميس — جمعات وكشتات • ٤:٠٠ عصراً – ٨:٠٠ مساءً</span>
+              <svg class="w-4 h-4 text-accent shrink-0 transition-transform group-hover:translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </div>
+          </div>
+        </button>
+
+        <!-- Left (RTL End): Theme Switcher + Cart Drawer Trigger -->
+        <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
+          <!-- Dual Theme Button -->
+          <button
+            id="themeToggleBtn"
+            onclick="toggleTheme()"
+            type="button"
+            aria-label="تبديل المظهر بين النهاري والليلي"
+            class="flex items-center gap-2 h-10 sm:h-11 px-3 sm:px-3.5 rounded-2xl surface-card border border-token hover:border-token-strong active:scale-95 transition-all text-xs font-bold text-token-primary"
+          >
+            <span id="themeIconWrap" class="text-accent flex items-center justify-center"></span>
+            <span id="themeLabelText" class="hidden xl:inline">وضع المدخنة</span>
+          </button>
+
+          <!-- Cart Button -->
+          <button
+            onclick="openCartDrawer()"
+            type="button"
+            aria-label="فتح سلة الشوي"
+            class="flex items-center gap-2 sm:gap-2.5 h-10 sm:h-11 px-3 sm:px-4 rounded-2xl bg-accent text-white font-bold shadow-ember hover:opacity-95 active:scale-95 transition-all"
+          >
+            <div class="relative flex items-center justify-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+                <path d="M3 6h18"/>
+                <path d="M16 10a4 4 0 0 1-8 0"/>
+              </svg>
+              <span
+                id="headerCartBadge"
+                class="absolute -top-2 -right-2 min-w-[19px] h-[19px] px-1 rounded-full bg-white text-[#8B261D] dark:text-[#12100E] text-[11px] font-black inline-flex items-center justify-center shadow"
+              >٠</span>
+            </div>
+            <div class="text-right leading-tight">
+              <span class="hidden sm:block text-[10px] opacity-85 font-body">سلة الشوي</span>
+              <span id="headerCartTotal" class="text-xs sm:text-sm font-extrabold whitespace-nowrap">٠ ر.س</span>
+            </div>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Row 2 (Mobile Only <768px): Full-Width Tappable Riyadh Delivery Slot Bar -->
+      <div class="md:hidden pb-2.5">
+        <button
+          onclick="openSlotModal()"
+          type="button"
+          class="w-full flex items-center justify-between gap-2 px-3 py-2 rounded-xl surface-card border border-token text-[11px] xs:text-xs active:scale-[0.99] transition"
+        >
+          <div class="flex items-center gap-1.5 min-w-0">
+            <span class="text-accent shrink-0">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/>
+                <path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/>
+              </svg>
+            </span>
+            <span class="text-token-muted shrink-0">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+            </span>
+            <span class="font-bold text-token-primary truncate">
+              الرياض • <span id="mobileNeighborhoodText">حي الملقا</span>
+            </span>
+            <span class="text-token-muted">•</span>
+            <span class="text-accent font-bold truncate flex items-center gap-1">
+              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <span id="mobileSlotText" class="truncate">الخميس • ٤:٠٠ – ٨:٠٠ م</span>
+            </span>
+          </div>
+          <span class="text-accent shrink-0 flex items-center gap-0.5 font-extrabold">
+            <span class="hidden xs:inline">تغيير</span>
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. EDITORIAL HERO SECTION + 3-PILLAR TRUST STRIP
+       ======================================================================== -->
+  <section class="relative pt-5 pb-8 sm:pt-8 sm:pb-12 craft-dots">
+    <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+
+      <!-- Split Editorial Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-7 items-stretch">
+
+        <!-- Right Editorial Pitch (7 cols on Desktop) -->
+        <div class="lg:col-span-7 surface-card border border-token rounded-3xl p-5 sm:p-8 lg:p-11 flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute -top-24 -left-24 w-64 h-64 rounded-full bg-accent opacity-10 blur-3xl pointer-events-none"></div>
+
+          <div>
+            <!-- Top Readiness Pill -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-soft text-accent text-xs sm:text-sm font-bold mb-5">
+              <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+              </svg>
+              <span>جاهز للشوي في الرياض • تحضير يومي طازج</span>
+            </div>
+
+            <!-- Fluid Responsive Headline -->
+            <h1 class="font-heading hero-title font-black text-token-primary mb-4">
+              لحمك مقطّع ومتبّل وجاهز للجمر..<br />
+              <span class="text-accent">يوصلك مبرد لباب البيت أو الاستراحة</span>
+            </h1>
+
+            <!-- Subtext -->
+            <p class="font-body text-sm sm:text-base lg:text-lg text-token-muted leading-relaxed max-w-2xl mb-7">
+              نختار لك يومياً أطيب قطعيات البلاك أنجوس، الواغيو، والغنم النعيمي الطازج والدجاج المبرد. نجهزها في بوكسات جمعات مدروسة أو صحون فردية حسب ذوقك، ونوصلها بأسطول مبرد داخل الرياض ومخيمات الثمامة والعمارية.
+            </p>
+          </div>
+
+          <div>
+            <!-- Primary & Secondary Touch-Friendly CTAs -->
+            <div class="flex flex-col xs:flex-row items-stretch xs:items-center gap-3 mb-7">
+              <button
+                onclick="jumpToCategory('boxes')"
+                type="button"
+                class="px-6 py-3.5 sm:py-4 rounded-2xl bg-accent text-white font-extrabold text-sm sm:text-base shadow-ember hover:opacity-95 active:scale-[0.99] transition flex items-center justify-center gap-2.5"
+              >
+                <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
+                  <path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>
+                </svg>
+                <span>تصفح بوكسات الجمعات</span>
+              </button>
+
+              <button
+                onclick="jumpToTraysSection()"
+                type="button"
+                class="px-6 py-3.5 sm:py-4 rounded-2xl surface-secondary text-token-primary border border-token-strong font-extrabold text-sm sm:text-base hover:border-current active:scale-[0.99] transition flex items-center justify-center gap-2.5"
+              >
+                <svg class="w-5 h-5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m12 2 10 5-10 5L2 7l10-5Z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/>
+                </svg>
+                <span>اختر صحونك بنفسك</span>
+              </button>
+            </div>
+
+            <!-- Key Butcher Metrics (Eastern Arabic Numerals Only) -->
+            <div class="grid grid-cols-3 gap-2.5 sm:gap-4 pt-5 border-t border-token">
+              <div>
+                <span class="block font-heading text-lg sm:text-2xl font-black text-token-primary">١٠٠٪</span>
+                <span class="text-[11px] sm:text-xs text-token-muted font-body">لحوم مبردة غير مجمدة</span>
+              </div>
+              <div>
+                <span class="block font-heading text-lg sm:text-2xl font-black text-accent">٠ – ٤°م</span>
+                <span class="text-[11px] sm:text-xs text-token-muted font-body">نقل مبرد لباب موقعك</span>
+              </div>
+              <div>
+                <span class="block font-heading text-lg sm:text-2xl font-black text-token-primary">+٣٥٠ ر.س</span>
+                <span class="text-[11px] sm:text-xs text-token-muted font-body">توصيل مجاني بالرياض</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Left Editorial Meat Showcase Visual (5 cols on Desktop) -->
+        <div class="lg:col-span-5 relative min-h-[320px] sm:min-h-[400px] rounded-3xl overflow-hidden border border-token img-fallback-surface group">
+          <img
+            src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1100&q=85"
+            onerror="handleImgError(this)"
+            alt="تشكيلة لحوم جمر الجاهزة للشوي في الرياض"
+            class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20"></div>
+
+          <!-- Top Floating Chilled & Marbling Guarantee Pills -->
+          <div class="absolute top-4 right-4 left-4 flex flex-wrap items-center justify-between gap-2">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/65 backdrop-blur-md text-amber-300 border border-white/15 text-[11px] sm:text-xs font-bold">
+              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/>
+                <path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/>
+              </svg>
+              <span>ضمان التبريد ٠ – ٤°م</span>
+            </span>
+
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 text-[#1E1B18] text-[11px] sm:text-xs font-extrabold shadow">
+              <svg class="w-3.5 h-3.5 text-[#8B261D] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+              </svg>
+              <span>درجة تعريق رخامي فاخرة</span>
+            </span>
+          </div>
+
+          <!-- Bottom Featured Box Spotlight Card -->
+          <div class="absolute bottom-4 right-4 left-4 p-4 sm:p-5 rounded-2xl bg-black/70 backdrop-blur-md border border-white/15 text-white">
+            <div class="flex items-center justify-between gap-3">
+              <div class="min-w-0">
+                <div class="flex items-center gap-1.5 text-[11px] text-amber-300 font-bold mb-1">
+                  <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+                  </svg>
+                  <span>الأكثر طلباً لجمعات الخميس والجمعة</span>
+                </div>
+                <h2 class="font-heading text-sm sm:text-lg font-extrabold truncate">بوكس الاستراحة الملكي (يكفي ١٠ – ١٢ شخص)</h2>
+                <p class="text-xs text-stone-300 font-body mt-0.5 truncate">٥.٨ كجم • ستيك ريب آي + ٣٤ سيخ + ١٢ برجر واغيو</p>
+              </div>
+              <button
+                onclick="openProductModal('box-istiraha-royal')"
+                type="button"
+                class="shrink-0 px-3.5 py-2.5 rounded-xl bg-[#E05A2B] hover:bg-[#C94B1F] text-white text-xs font-extrabold transition flex items-center gap-1.5"
+              >
+                <span>التفاصيل</span>
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m15 18-6-6 6-6"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 3-Column Responsive Trust Strip -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-5 mt-5">
+        <div class="surface-card border border-token rounded-2xl p-4 sm:p-5 flex items-start sm:items-center gap-3.5">
+          <div class="w-11 h-11 rounded-2xl bg-accent-soft text-accent flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-heading font-bold text-sm sm:text-base text-token-primary">تحضير وتتبيل يومي طازج</h3>
+            <p class="text-xs text-token-muted font-body mt-0.5 leading-relaxed">تقطيع وشكّ الأسياخ يوم استلامك بأطباق محكمة تحفظ العصارة</p>
+          </div>
+        </div>
+
+        <div class="surface-card border border-token rounded-2xl p-4 sm:p-5 flex items-start sm:items-center gap-3.5">
+          <div class="w-11 h-11 rounded-2xl bg-accent-soft text-accent flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
+              <path d="M15 18H9"/>
+              <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/>
+              <circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-heading font-bold text-sm sm:text-base text-token-primary">أسطول توصيل مبرد بالرياض</h3>
+            <p class="text-xs text-token-muted font-body mt-0.5 leading-relaxed">نوافذ توصيل مجدولة تغطي أحياء الرياض واستراحات الثمامة والعمارية</p>
+          </div>
+        </div>
+
+        <div class="surface-card border border-token rounded-2xl p-4 sm:p-5 flex items-start sm:items-center gap-3.5">
+          <div class="w-11 h-11 rounded-2xl bg-accent-soft text-accent flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-heading font-bold text-sm sm:text-base text-token-primary">طلب فوري عبر واتساب بدون تعقيد</h3>
+            <p class="text-xs text-token-muted font-body mt-0.5 leading-relaxed">اختر أصنافك وحدد موعدك وأرسل الفاتورة الجاهزة بضغطة واحدة</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3. STICKY HORIZONTAL CATEGORY FILTER BAR + SEARCH
+       ======================================================================== -->
+  <div id="catalogStickyBar" class="sticky top-[104px] md:top-20 z-30 surface-glass border-y border-token py-3 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-2.5">
+
+        <!-- Smooth Horizontal Touch Scroll Category Pills -->
+        <nav id="categoryFilterNav" aria-label="أقسام الملحمة" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-0.5">
+          <!-- Populated dynamically via JS with SVG line icons & Eastern Arabic counts -->
+        </nav>
+
+        <!-- Search & Protein Filter -->
+        <div class="flex items-center gap-2 shrink-0">
+          <div class="relative flex-1 sm:w-56">
+            <input
+              id="searchCatalogInput"
+              type="search"
+              oninput="handleSearchInput(this.value)"
+              placeholder="ابحث عن أوصال، ريب آي، كشتة..."
+              class="w-full pr-9 pl-3 py-2 rounded-xl surface-card border border-token text-xs font-bold text-token-primary placeholder:text-token-muted placeholder:font-normal focus:outline-none focus:border-current"
+            />
+            <span class="absolute right-3 top-1/2 -translate-y-1/2 text-token-muted pointer-events-none">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+              </svg>
+            </span>
+          </div>
+
+          <select
+            id="proteinSelect"
+            onchange="handleProteinChange(this.value)"
+            aria-label="تصفية حسب نوع البروتين"
+            class="px-3 py-2 rounded-xl surface-card border border-token text-xs font-bold text-token-primary focus:outline-none cursor-pointer"
+          >
+            <option value="all">كل اللحوم</option>
+            <option value="beef">بقري أنجوس وواغيو</option>
+            <option value="lamb">غنم نعيمي بلدي</option>
+            <option value="chicken">دجاج محلي مبرد</option>
+            <option value="mixed">تشكيلة متنوعة</option>
+          </select>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       4. TWO-TIER MERCHANDISING CATALOG
+          - Section 1: بوكسات الجمعات (1 col mobile / 2 col tablet / 3 col desktop)
+          - Section 2: الصحون والأطباق الفردية (1 col <480px / 2 col sm / 3 col lg / 4 col xl)
+       ======================================================================== -->
+  <main class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-8 sm:py-11 space-y-12 sm:space-y-16 pb-28 md:pb-16">
+
+    <!-- Empty Filter Result Card -->
+    <div id="emptyCatalogState" class="hidden surface-card border border-token rounded-3xl p-10 sm:p-14 text-center">
+      <div class="w-14 h-14 rounded-2xl bg-accent-soft text-accent mx-auto flex items-center justify-center mb-4">
+        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+        </svg>
+      </div>
+      <h3 class="font-heading text-lg sm:text-xl font-extrabold text-token-primary mb-2">لم نجد أصنافاً تطابق خيارات التصفية</h3>
+      <p class="text-xs sm:text-sm text-token-muted font-body mb-5">جرّب مسح البحث لاستعراض كافة بوكسات الجمعات وصحون جمر الطازجة.</p>
+      <button
+        onclick="resetAllFilters()"
+        type="button"
+        class="px-5 py-2.5 rounded-xl bg-accent text-white text-xs sm:text-sm font-extrabold shadow-ember"
+      >
+        عرض القائمة الكاملة
+      </button>
+    </div>
+
+    <!-- SECTION 1: FEATURED PRE-CURATED GATHERING BOXES -->
+    <section id="boxesSection" class="space-y-5 sm:space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <div class="inline-flex items-center gap-1.5 text-xs font-extrabold text-accent mb-1">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
+              <path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>
+            </svg>
+            <span>مرتبة ومغلفة وجاهزة للمنقل • شاملة الصوصات</span>
+          </div>
+          <h2 class="font-heading section-title font-black text-token-primary">بوكسات الجمعات والكشتات</h2>
+        </div>
+        <p class="text-xs sm:text-sm text-token-muted font-body">
+          كميات موزونة بدقة لتكفي ضيوفك في البيت أو الاستراحة أو المخيم
+        </p>
+      </div>
+
+      <!-- 1 col mobile / 2 col tablet / 3 col desktop -->
+      <div id="boxesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <!-- Populated dynamically via JS -->
+      </div>
+    </section>
+
+    <!-- SECTION 2: INDIVIDUAL READY-TO-GRILL TRAYS & SAUCES -->
+    <section id="traysSection" class="space-y-5 sm:space-y-6 pt-4 border-t border-token">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <div class="inline-flex items-center gap-1.5 text-xs font-extrabold text-gold mb-1">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m12 2 10 5-10 5L2 7l10-5Z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/>
+            </svg>
+            <span>تخصيص التتبيلة متاح لكل صحن لحم</span>
+          </div>
+          <h2 id="traysSectionHeading" class="font-heading section-title font-black text-token-primary">
+            الصحون والأطباق الفردية
+          </h2>
+        </div>
+        <p class="text-xs sm:text-sm text-token-muted font-body">
+          اختر بين «تتبيلة جمر الخاصة» أو «ملح وفلفل فقط» مباشرة قبل الإضافة للسلة
+        </p>
+      </div>
+
+      <!-- 1 col (<480px) / 2 col (xs/sm) / 3 col (lg) / 4 col (xl) -->
+      <div id="traysGrid" class="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
+        <!-- Populated dynamically via JS -->
+      </div>
+    </section>
+
+    <!-- CHARCOAL PITMASTER GUIDE BANNER -->
+    <section class="surface-card border border-token rounded-3xl p-5 sm:p-8 lg:p-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        <div class="lg:col-span-8 space-y-3">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-soft text-accent text-xs font-extrabold">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v8"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 22 4-10 4 10"/>
+            </svg>
+            <span>قاعدة الجمر الذهبية من ملحمة جمر</span>
+          </div>
+          <h3 class="font-heading text-lg sm:text-2xl font-black text-token-primary">كيف تحصل على شوي طري وعصاري بنسبة ١٠٠٪؟</h3>
+          <p class="text-xs sm:text-base text-token-muted font-body leading-relaxed">
+            أخرج صحون اللحم من التبريد قبل وضعها على الشبك بـ ٢٠ دقيقة، وانتظر حتى يهدأ لهب الفحم تماماً وتظهر طبقة رماد بيضاء خفيفة فوق الجمر. كل صحن يوصلك مرفقاً بإرشاد دقائق الشوي المثالية لكل وجه.
+          </p>
+          <div class="flex flex-wrap gap-2.5 pt-1 text-xs font-bold text-token-primary">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl surface-secondary border border-token">
+              <svg class="w-3.5 h-3.5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/>
+                <path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/>
+              </svg>
+              <span>درجة حفظ ٠ – ٤°م</span>
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl surface-secondary border border-token">
+              <svg class="w-3.5 h-3.5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <span>طازج للشوي خلال ٤٨ ساعة</span>
+            </span>
+          </div>
+        </div>
+        <div class="lg:col-span-4 flex lg:justify-end">
+          <button
+            onclick="openSlotModal()"
+            type="button"
+            class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-accent text-white font-extrabold text-xs sm:text-sm shadow-ember hover:opacity-95 transition flex items-center justify-center gap-2"
+          >
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
+            </svg>
+            <span>تحديد نافذة التوصيل المبرد بالرياض</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       5. FOOTER
+       ======================================================================== -->
+  <footer class="surface-secondary border-t border-token pt-10 pb-28 md:pb-12">
+    <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-token">
+
+        <div class="md:col-span-5 space-y-3">
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-accent text-white flex items-center justify-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+              </svg>
+            </div>
+            <div>
+              <span class="font-heading text-lg font-black text-token-primary">جمر | JAMR</span>
+              <span class="block text-xs text-token-muted">ملحمة الشوي المختصة • الرياض، المملكة العربية السعودية</span>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-token-muted font-body leading-relaxed">
+            نقدّم تجربة شوي راقية وجاهزة بدون عناء التقطيع والتتبيل، مع التزام صارم بمعايير النظافة وسلسلة التبريد من الملحمة حتى موقعك في الرياض.
+          </p>
+        </div>
+
+        <div class="md:col-span-4 space-y-2">
+          <h4 class="font-heading font-extrabold text-sm text-token-primary">تغطية التوصيل المبرد بالرياض</h4>
+          <p class="text-xs text-token-muted font-body leading-relaxed">
+            الملقا، الياسمين، النرجس، حطين، الصحافة، العقيق، العليا، قرطبة، السفارات، بالإضافة إلى استراحات ومخيمات الرمال والثمامة والعمارية والدرعية.
+          </p>
+          <p class="text-xs font-extrabold text-accent pt-1">
+            رسوم التوصيل المبرد ٢٥ ر.س • ومجاني للطلبات فوق ٣٥٠ ر.س
+          </p>
+        </div>
+
+        <div class="md:col-span-3 space-y-2">
+          <h4 class="font-heading font-extrabold text-sm text-token-primary">الأقسام السريعة</h4>
+          <ul class="space-y-1.5 text-xs text-token-muted font-bold">
+            <li><button onclick="jumpToCategory('boxes')" type="button" class="hover:text-accent transition">بوكسات الجمعات</button></li>
+            <li><button onclick="jumpToCategory('skewers')" type="button" class="hover:text-accent transition">أوصال وشيش وكباب</button></li>
+            <li><button onclick="jumpToCategory('steaks')" type="button" class="hover:text-accent transition">ستيك وأضلاع</button></li>
+            <li><button onclick="openSlotModal()" type="button" class="hover:text-accent transition">جدولة موعد التوصيل</button></li>
+            <li><button onclick="openCartDrawer()" type="button" class="hover:text-accent transition">مراجعة السلة وإرسال واتساب</button></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-token-muted">
+        <p>© ٢٠٢٦ متجر جمر للشوي الجاهز (JAMR). جميع الحقوق محفوظة — الرياض.</p>
+        <p>تُحفظ كافة الأصناف مبردة بين ٠ – ٤°م وتُشوى خلال ٤٨ ساعة</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       6. MOBILE BOTTOM STICKY CART BAR (< 768px ONLY)
+       ======================================================================== -->
+  <div
+    id="mobileBottomCartBar"
+    class="md:hidden fixed bottom-3 inset-x-3 z-30 hidden transition-all duration-300"
+  >
+    <div class="surface-card border-2 border-token-strong rounded-2xl p-3 shadow-2xl">
+      <div class="flex items-center justify-between text-[11px] font-bold mb-1.5 px-0.5">
+        <span id="mobileBarDeliveryHint" class="text-token-primary truncate">التوصيل المبرد مجاني فوق ٣٥٠ ر.س</span>
+        <span id="mobileBarDeliveryPct" class="text-accent font-extrabold shrink-0">٠٪</span>
+      </div>
+      <div class="w-full h-1.5 rounded-full surface-secondary overflow-hidden mb-2.5">
+        <div id="mobileBarProgressFill" class="h-full bg-accent transition-all duration-500 rounded-full" style="width: 0%"></div>
+      </div>
+
+      <div class="flex items-center justify-between gap-2.5">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <span id="mobileBarCountBadge" class="w-9 h-9 rounded-xl bg-accent-soft text-accent font-heading font-black text-sm flex items-center justify-center shrink-0">٠</span>
+          <div class="leading-tight min-w-0">
+            <span class="block text-[10px] text-token-muted font-body">الإجمالي التقديري</span>
+            <span id="mobileBarTotal" class="font-heading text-sm font-black text-token-primary truncate">٠ ر.س</span>
+          </div>
+        </div>
+
+        <button
+          onclick="openCartDrawer()"
+          type="button"
+          class="px-4 py-2.5 rounded-xl bg-[#1E8E4E] hover:bg-[#187740] text-white font-extrabold text-xs shadow transition flex items-center gap-1.5 shrink-0"
+        >
+          <span>عرض السلة وإرسال الطلب</span>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       7. RIYADH SCHEDULED DELIVERY SLOT PICKER (BOTTOM SHEET MOBILE / MODAL DESKTOP)
+       ======================================================================== -->
+  <div
+    id="slotModal"
+    onclick="if(event.target===this) closeSlotModal()"
+    class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center sm:p-4 bg-black/65 backdrop-blur-sm"
+  >
+    <div class="surface-card border border-token rounded-t-3xl sm:rounded-3xl max-w-lg w-full max-h-sheet flex flex-col overflow-hidden shadow-2xl">
+      <!-- Mobile Drag Handle Indicator -->
+      <div class="sm:hidden pt-2.5 pb-1 flex justify-center shrink-0">
+        <span class="w-10 h-1 rounded-full bg-stone-400/40"></span>
+      </div>
+
+      <div class="px-5 py-4 border-b border-token flex items-center justify-between shrink-0">
+        <div class="flex items-center gap-2.5">
+          <span class="w-9 h-9 rounded-xl bg-accent-soft text-accent flex items-center justify-center">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
+            </svg>
+          </span>
+          <div>
+            <span class="text-[11px] font-bold text-accent block">خدمة النقل المبرد • الرياض</span>
+            <h3 class="font-heading text-base sm:text-lg font-black text-token-primary">تحديد موعد وحي الاستلام</h3>
+          </div>
+        </div>
+        <button
+          onclick="closeSlotModal()"
+          type="button"
+          aria-label="إغلاق"
+          class="w-9 h-9 rounded-xl surface-secondary text-token-primary flex items-center justify-center hover:opacity-80"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="p-5 overflow-y-auto space-y-5 flex-1">
+        <!-- Step 1: Delivery Day -->
+        <div>
+          <label class="block text-xs font-extrabold text-token-primary mb-2">١. اختر يوم التوصيل</label>
+          <div id="slotDayGrid" class="grid grid-cols-2 gap-2.5"></div>
+        </div>
+
+        <!-- Step 2: Delivery Chilled Time Window -->
+        <div>
+          <label class="block text-xs font-extrabold text-token-primary mb-2">٢. اختر الفترة الزمنية المبردة</label>
+          <div id="slotWindowGrid" class="grid grid-cols-1 gap-2"></div>
+        </div>
+
+        <!-- Step 3: Riyadh Neighborhood -->
+        <div>
+          <label for="slotDistrictInput" class="block text-xs font-extrabold text-token-primary mb-2">٣. الحي في الرياض أو موقع الاستراحة</label>
+          <input
+            id="slotDistrictInput"
+            type="text"
+            oninput="this.value = toAr(this.value)"
+            placeholder="اكتب الحي أو اختر من الأحياء بالأسفل..."
+            class="w-full px-3.5 py-2.5 rounded-xl surface-secondary border border-token text-xs sm:text-sm font-bold text-token-primary focus:outline-none focus:border-current mb-2.5"
+          />
+          <div id="slotDistrictChips" class="flex flex-wrap gap-1.5"></div>
+        </div>
+      </div>
+
+      <div class="p-4 sm:p-5 border-t border-token surface-card shrink-0">
+        <button
+          onclick="confirmSlotModal()"
+          type="button"
+          class="w-full py-3.5 rounded-2xl bg-accent text-white font-extrabold text-sm shadow-ember hover:opacity-95 transition flex items-center justify-center gap-2"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6 9 17l-5-5"/>
+          </svg>
+          <span>اعتماد موعد التوصيل</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       8. PRODUCT QUICK-VIEW MODAL (BOTTOM SHEET MOBILE / CENTERED DESKTOP)
+       ======================================================================== -->
+  <div
+    id="productQuickModal"
+    onclick="if(event.target===this) closeProductModal()"
+    class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center sm:p-4 bg-black/70 backdrop-blur-sm"
+  >
+    <div
+      id="productQuickModalCard"
+      class="surface-card border border-token rounded-t-3xl sm:rounded-3xl max-w-2xl w-full max-h-sheet flex flex-col overflow-hidden shadow-2xl"
+    >
+      <!-- Populated dynamically via JS -->
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       9. SLIDE-OUT CART DRAWER (100% WIDTH MOBILE / 440px DESKTOP, h-dvh-screen)
+       ======================================================================== -->
+  <div
+    id="cartBackdrop"
+    onclick="closeCartDrawer()"
+    class="fixed inset-0 z-50 hidden bg-black/65 backdrop-blur-sm transition-opacity"
+  ></div>
+
+  <aside
+    id="cartDrawer"
+    aria-label="سلة الشوي وإتمام الطلب"
+    class="fixed top-0 left-0 z-50 w-full sm:w-[440px] h-dvh-screen surface-card border-r border-token shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col"
+  >
+    <!-- Drawer Header -->
+    <div class="px-4 sm:px-5 py-4 border-b border-token flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-2.5">
+        <span class="w-9 h-9 rounded-xl bg-accent-soft text-accent flex items-center justify-center">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+        </span>
+        <div>
+          <h2 class="font-heading text-base sm:text-lg font-black text-token-primary">سلة الشوي الخاصة بك</h2>
+          <p id="drawerSubCount" class="text-[11px] text-token-muted font-body">توصيل مبرد داخل مدينة الرياض</p>
+        </div>
+      </div>
+      <button
+        onclick="closeCartDrawer()"
+        type="button"
+        aria-label="إغلاق السلة"
+        class="w-9 h-9 rounded-xl surface-secondary text-token-primary flex items-center justify-center hover:opacity-80"
+      >
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Dynamic Free Chilled Delivery Progress Bar -->
+    <div class="px-4 sm:px-5 py-3 surface-secondary border-b border-token shrink-0">
+      <div class="flex items-center justify-between gap-2 text-xs font-bold mb-1.5">
+        <span id="drawerFreeShipMsg" class="text-token-primary truncate">التوصيل المبرد مجاني للطلبات فوق ٣٥٠ ر.س</span>
+        <span id="drawerFreeShipBadge" class="text-accent font-extrabold shrink-0">٢٥ ر.س</span>
+      </div>
+      <div class="w-full h-2 rounded-full surface-card overflow-hidden border border-token">
+        <div id="drawerFreeShipFill" class="h-full bg-accent transition-all duration-500 rounded-full" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <!-- Scrollable Drawer Body -->
+    <div class="flex-1 overflow-y-auto p-4 sm:p-5 space-y-5">
+
+      <!-- Empty Cart View -->
+      <div id="drawerEmptyView" class="py-14 text-center space-y-4 hidden">
+        <div class="w-16 h-16 rounded-3xl bg-accent-soft text-accent mx-auto flex items-center justify-center">
+          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+        </div>
+        <h3 class="font-heading text-lg font-extrabold text-token-primary">سلتك خالية حالياً</h3>
+        <p class="text-xs sm:text-sm text-token-muted font-body max-w-xs mx-auto leading-relaxed">
+          اختر أحد بوكسات الجمعات المتكاملة أو أضف صحون الأوصال والستيك والبرجر الجاهزة للشوي.
+        </p>
+        <button
+          onclick="closeCartDrawer(); jumpToCategory('boxes');"
+          type="button"
+          class="px-5 py-3 rounded-xl bg-accent text-white text-xs font-extrabold shadow-ember inline-flex items-center gap-2"
+        >
+          <span>استعراض بوكسات الجمعات</span>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Active Cart View -->
+      <div id="drawerFilledView" class="space-y-5">
+
+        <!-- Itemized Cart Cards -->
+        <div id="drawerCartItems" class="space-y-2.5"></div>
+
+        <!-- Horizontal 1-Tap Sauce & Butter Upsell Strip -->
+        <div id="drawerUpsellWrap" class="pt-3 border-t border-token">
+          <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center gap-1.5 text-xs font-extrabold text-token-primary">
+              <svg class="w-4 h-4 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+              </svg>
+              <span>أضف لمسة جمر — صوصات وزبدة</span>
+            </div>
+            <span class="text-[11px] text-token-muted">إضافة فورية</span>
+          </div>
+          <div id="drawerUpsellList" class="flex gap-2.5 overflow-x-auto no-scrollbar pb-1"></div>
+        </div>
+
+        <!-- Compact Riyadh Delivery & Customer Form -->
+        <div class="surface-secondary border border-token rounded-2xl p-4 space-y-3.5">
+          <div class="flex items-center justify-between">
+            <h4 class="font-heading text-xs sm:text-sm font-extrabold text-token-primary flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>بيانات الاستلام في الرياض</span>
+            </h4>
+            <span class="text-[11px] text-accent font-bold">مباشر بدون تسجيل</span>
+          </div>
+
+          <!-- 1. Customer Name -->
+          <div>
+            <label for="orderCustName" class="block text-xs font-bold text-token-primary mb-1">الاسم الكريم *</label>
+            <input
+              id="orderCustName"
+              type="text"
+              oninput="handleFormInput()"
+              placeholder="مثال: أبو فهد / سلطان العتيبي"
+              class="w-full px-3.5 py-2.5 rounded-xl surface-card border border-token text-xs sm:text-sm font-bold text-token-primary focus:outline-none focus:border-current"
+            />
+          </div>
+
+          <!-- Optional Phone Input with Seamless Eastern Arabic Numeral Conversion -->
+          <div>
+            <label for="orderCustPhone" class="block text-xs font-bold text-token-primary mb-1">رقم الجوال للتواصل (اختياري)</label>
+            <input
+              id="orderCustPhone"
+              type="tel"
+              dir="rtl"
+              oninput="this.value = toAr(this.value); handleFormInput();"
+              placeholder="٠٥XXXXXXXX"
+              class="w-full px-3.5 py-2.5 rounded-xl surface-card border border-token text-xs sm:text-sm font-bold text-token-primary focus:outline-none focus:border-current"
+            />
+          </div>
+
+          <!-- 2. Riyadh Neighborhood & Istiraha/Location Note -->
+          <div>
+            <label for="orderCustDistrict" class="block text-xs font-bold text-token-primary mb-1">الحي / وصف الموقع أو الاستراحة *</label>
+            <input
+              id="orderCustDistrict"
+              type="text"
+              list="riyadhNeighborhoodOptions"
+              oninput="this.value = toAr(this.value); handleFormInput();"
+              placeholder="مثال: حي الملقا، استراحة العمارية، مخيم الثمامة..."
+              class="w-full px-3.5 py-2.5 rounded-xl surface-card border border-token text-xs sm:text-sm font-bold text-token-primary focus:outline-none focus:border-current"
+            />
+            <datalist id="riyadhNeighborhoodOptions">
+              <option value="حي الملقا"></option>
+              <option value="حي الياسمين"></option>
+              <option value="حي النرجس"></option>
+              <option value="حي حطين"></option>
+              <option value="حي الصحافة"></option>
+              <option value="حي العليا"></option>
+              <option value="الرمال / الثمامة"></option>
+              <option value="العمارية / الدرعية"></option>
+            </datalist>
+          </div>
+
+          <!-- 3. Pre-Synced Delivery Day & Chilled Time Window Summary + Quick Edit -->
+          <div class="p-3 rounded-xl surface-card border border-token flex items-center justify-between gap-2">
+            <div class="min-w-0">
+              <span class="block text-[11px] text-token-muted font-body">موعد التوصيل المبرد المحدد</span>
+              <span id="drawerSyncedSlotLabel" class="block text-xs font-extrabold text-token-primary truncate mt-0.5">
+                الخميس — جمعات وكشتات • ٤:٠٠ عصراً – ٨:٠٠ مساءً
+              </span>
+            </div>
+            <button
+              onclick="openSlotModal()"
+              type="button"
+              class="shrink-0 px-2.5 py-1.5 rounded-lg bg-accent-soft text-accent text-[11px] font-extrabold hover:opacity-85 transition"
+            >
+              تعديل الموعد
+            </button>
+          </div>
+
+          <!-- Optional Butcher Note -->
+          <div>
+            <label for="orderCustNotes" class="block text-xs font-bold text-token-muted mb-1">ملاحظات للملحمة أو المندوب (اختياري)</label>
+            <input
+              id="orderCustNotes"
+              type="text"
+              oninput="this.value = toAr(this.value); handleFormInput();"
+              placeholder="مثال: تقليل الدهن، أو سأشارك موقع اللوكيشن بالمحادثة..."
+              class="w-full px-3.5 py-2 rounded-xl surface-card border border-token text-xs text-token-primary focus:outline-none"
+            />
+          </div>
+
+          <div id="formValidationAlert" class="hidden p-2.5 rounded-xl bg-red-600/10 border border-red-600/30 text-red-700 dark:text-red-400 text-xs font-bold flex items-center gap-2">
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/>
+            </svg>
+            <span>يرجى إدخال الاسم الكريم والحي في الرياض لإرسال الطلب.</span>
+          </div>
+        </div>
+
+        <!-- Collapsible Live WhatsApp Invoice Preview -->
+        <div class="border border-token rounded-2xl overflow-hidden">
+          <button
+            onclick="toggleInvoicePreview()"
+            type="button"
+            class="w-full px-4 py-3 surface-secondary flex items-center justify-between text-xs font-extrabold text-token-primary"
+          >
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/>
+              </svg>
+              <span>معاينة فاتورة الطلب النصية</span>
+            </span>
+            <span id="invoicePreviewToggleLabel" class="text-accent flex items-center gap-1">
+              <span>عرض</span>
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </span>
+          </button>
+
+          <div id="invoicePreviewBody" class="hidden p-3.5 surface-card space-y-2.5">
+            <pre id="invoicePreviewPre" class="text-[11px] leading-relaxed whitespace-pre-wrap font-body text-token-primary surface-secondary p-3 rounded-xl border border-token max-h-48 overflow-y-auto"></pre>
+            <button
+              onclick="copyInvoiceToClipboard()"
+              type="button"
+              class="w-full py-2.5 rounded-xl surface-secondary border border-token-strong text-xs font-extrabold text-token-primary hover:border-current transition flex items-center justify-center gap-2"
+            >
+              <svg class="w-4 h-4 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+              </svg>
+              <span>نسخ الطلب</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Drawer Sticky Footer Totals & WhatsApp CTA -->
+    <div id="drawerFooter" class="p-4 sm:p-5 border-t border-token surface-card space-y-3 shrink-0">
+      <div class="space-y-1 text-xs">
+        <div class="flex justify-between text-token-muted">
+          <span>المجموع الفرعي للأصناف</span>
+          <span id="drawerSubtotalVal" class="font-bold text-token-primary">٠ ر.س</span>
+        </div>
+        <div class="flex justify-between text-token-muted">
+          <span>التوصيل المبرد داخل الرياض</span>
+          <span id="drawerDeliveryVal" class="font-bold text-token-primary">٢٥ ر.س</span>
+        </div>
+        <div class="flex justify-between text-sm sm:text-base font-black text-token-primary pt-1.5 border-t border-token">
+          <span>الإجمالي النهائي (شامل الضريبة)</span>
+          <span id="drawerGrandTotalVal" class="text-accent">٠ ر.س</span>
+        </div>
+      </div>
+
+      <div class="flex gap-2">
+        <button
+          onclick="copyInvoiceToClipboard()"
+          type="button"
+          title="نسخ الطلب"
+          class="px-3.5 py-3.5 rounded-2xl surface-secondary border border-token-strong text-token-primary font-extrabold text-xs hover:border-current transition flex items-center justify-center gap-1.5 shrink-0"
+        >
+          <svg class="w-4 h-4 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+          </svg>
+          <span>نسخ الطلب</span>
+        </button>
+
+        <button
+          onclick="submitWhatsAppOrder()"
+          type="button"
+          class="flex-1 py-3.5 px-4 rounded-2xl bg-[#1E8E4E] hover:bg-[#187740] text-white font-black text-xs sm:text-sm shadow-lg active:scale-[0.99] transition flex items-center justify-center gap-2"
+        >
+          <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+            <path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/>
+          </svg>
+          <span>إرسال الطلب عبر واتساب</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       10. WHATSAPP DISPATCH CONFIRMATION SHEET / MODAL
+       ======================================================================== -->
+  <div
+    id="waDispatchModal"
+    onclick="if(event.target===this) closeWaDispatchModal()"
+    class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center sm:p-4 bg-black/70 backdrop-blur-sm"
+  >
+    <div class="surface-card border border-token rounded-t-3xl sm:rounded-3xl max-w-md w-full p-5 sm:p-6 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="w-10 h-10 rounded-2xl bg-emerald-600/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 6 9 17l-5-5"/>
+            </svg>
+          </span>
+          <div>
+            <h3 class="font-heading text-base sm:text-lg font-black text-token-primary">فاتورة طلبك جاهزة للإرسال</h3>
+            <p class="text-xs text-token-muted">محادثة خدمة عملاء جمر — الرياض</p>
+          </div>
+        </div>
+        <button
+          onclick="closeWaDispatchModal()"
+          type="button"
+          class="w-8 h-8 rounded-xl surface-secondary text-token-primary flex items-center justify-center"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <p class="text-xs text-token-muted font-body leading-relaxed">
+        تم تجهيز تفاصيل طلبك بالكامل. اضغط لفتح محادثة واتساب مباشرة أو انسخ نص الطلب أدناه:
+      </p>
+
+      <pre id="waDispatchPre" class="text-[11px] leading-relaxed whitespace-pre-wrap font-body text-token-primary surface-secondary p-3.5 rounded-2xl border border-token max-h-52 overflow-y-auto"></pre>
+
+      <div class="grid grid-cols-2 gap-2.5">
+        <button
+          onclick="copyInvoiceToClipboard()"
+          type="button"
+          class="py-3 rounded-xl surface-secondary border border-token-strong font-extrabold text-xs text-token-primary hover:border-current transition flex items-center justify-center gap-1.5"
+        >
+          <svg class="w-4 h-4 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+          </svg>
+          <span>نسخ الطلب</span>
+        </button>
+        <a
+          id="waDirectLink"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="py-3 rounded-xl bg-[#1E8E4E] hover:bg-[#187740] text-white font-extrabold text-xs shadow transition flex items-center justify-center gap-1.5"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+          </svg>
+          <span>متابعة في واتساب</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Non-blocking Toast Banner (SVG Line Icon Only, Zero Emojis) -->
+  <div
+    id="toastAlert"
+    class="fixed top-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-300 transform -translate-y-2 max-w-[92vw]"
+  >
+    <div class="px-4 py-2.5 rounded-2xl bg-[#1E1B18] dark:bg-[#F5EFE6] text-white dark:text-[#12100E] text-xs font-extrabold shadow-xl flex items-center gap-2">
+      <span id="toastSvgHolder" class="text-[#E05A2B] dark:text-[#8B261D] shrink-0"></span>
+      <span id="toastMessageText" class="truncate">تم تحديث السلة</span>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       JAVASCRIPT STORE ENGINE
+       - 100% Crisp 1.75px Stroke SVG Line Icons Dictionary (`ICONS`)
+       - 100% Universal Eastern Arabic Numerals Formatter (`toAr`)
+       ======================================================================== -->
+  <script>
+    // ========================================================================
+    // 1. UNIVERSAL EASTERN ARABIC NUMERALS CONVERTER (`٠١٢٣٤٥٦٧٨٩`)
+    // ========================================================================
+    function toAr(val) {
+      if (val === null || val === undefined) return '';
+      return String(val).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+    }
+
+    // ========================================================================
+    // 2. CRISP 1.75px STROKE INLINE SVG LINE ICONS DICTIONARY (ZERO EMOJIS)
+    // ========================================================================
+    const ICONS = {
+      flame: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
+      sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>',
+      moon: '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
+      snowflake: '<line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/>',
+      mapPin: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
+      clock: '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+      calendar: '<rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>',
+      shoppingBag: '<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>',
+      users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+      scale: '<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>',
+      layers: '<path d="m12 2 10 5-10 5L2 7l10-5Z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/>',
+      utensils: '<path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>',
+      check: '<path d="M20 6 9 17l-5-5"/>',
+      plus: '<path d="M5 12h14"/><path d="M12 5v14"/>',
+      minus: '<path d="M5 12h14"/>',
+      trash: '<path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/>',
+      eye: '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>',
+      truck: '<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/>',
+      shieldCheck: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>',
+      messageCircle: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
+      copy: '<rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>',
+      x: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
+      chevronDown: '<path d="m6 9 6 6 6-6"/>',
+      chevronLeft: '<path d="m15 18-6-6 6-6"/>',
+      sparkles: '<path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>',
+      box: '<path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>',
+      skewer: '<path d="m4 20 16-16"/><circle cx="15" cy="9" r="2"/><circle cx="11" cy="13" r="2"/><path d="m18 3 3 3"/>',
+      flameKindling: '<path d="M12 2c1 3 2.5 3.5 3.5 4.5A5 5 0 0 1 17 10a5 5 0 1 1-10 0c0-.3 0-.6.1-.9a2 2 0 1 0 3.3-2C8 4.5 11 2 12 2Z"/><path d="m5 22 14-4"/><path d="m5 18 14 4"/>',
+      droplet: '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>',
+      info: '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>'
+    };
+
+    function svgIcon(name, classes = 'w-4 h-4') {
+      const body = ICONS[name] || ICONS.flame;
+      return `<svg class="${classes} shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${body}</svg>`;
+    }
+
+    // Clean Gradient + SVG Fallback on Image Error (Zero Western Digits)
+    function handleImgError(imgEl) {
+      imgEl.onerror = null;
+      const parent = imgEl.parentElement;
+      imgEl.style.display = 'none';
+      const fallback = document.createElement('div');
+      fallback.className = 'w-full h-full img-fallback-surface flex flex-col items-center justify-center text-[#F5EFE6] p-4 text-center';
+      fallback.innerHTML = `
+        <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mb-2 text-[#E05A2B]">
+          ${svgIcon('flame', 'w-6 h-6')}
+        </div>
+        <span class="font-heading text-xs font-bold opacity-90">جمر — ملحمة الشوي المختصة</span>
+      `;
+      parent.insertBefore(fallback, parent.firstChild);
+    }
+
+    // ========================================================================
+    // 3. STORE CONFIGURATION & RIYADH LOGISTICS DATA
+    // ========================================================================
+    const WHATSAPP_PHONE = '966500000000';
+    const FREE_DELIVERY_MIN = 350;
+    const DELIVERY_FEE = 25;
+
+    const DELIVERY_DAYS = [
+      { id: 'today', label: 'اليوم', note: 'تحضير طازج فوري' },
+      { id: 'tomorrow', label: 'غداً', note: 'جدولة مبكرة مضمونة' },
+      { id: 'thursday', label: 'الخميس — جمعات وكشتات', note: 'الأعلى طلباً بالرياض' },
+      { id: 'friday', label: 'الجمعة', note: 'توصيل مبرد للغداء والعشاء' }
+    ];
+
+    const DELIVERY_WINDOWS = [
+      { id: 'slot1', label: '١٢:٠٠ ظهراً – ٤:٠٠ عصراً', shortLabel: '١٢:٠٠ – ٤:٠٠ م', desc: 'مثالي لغداء العائلة والاستراحات' },
+      { id: 'slot2', label: '٤:٠٠ عصراً – ٨:٠٠ مساءً', shortLabel: '٤:٠٠ – ٨:٠٠ م', desc: 'الموعد الأنسب لشوي المساء والكشتات' },
+      { id: 'slot3', label: '٨:٠٠ مساءً – ١١:٠٠ مساءً', shortLabel: '٨:٠٠ – ١١:٠٠ م', desc: 'لسهرات الشوي المتأخرة والمخيمات' }
+    ];
+
+    const RIYADH_DISTRICTS = [
+      'حي الملقا',
+      'حي الياسمين',
+      'حي النرجس',
+      'حي حطين',
+      'حي الصحافة',
+      'حي العليا',
+      'الرمال / الثمامة',
+      'العمارية / الدرعية'
+    ];
+
+    const CATEGORIES = [
+      { id: 'all', name: 'الكل', icon: 'flame' },
+      { id: 'boxes', name: 'بوكسات الجمعات', icon: 'box' },
+      { id: 'skewers', name: 'أوصال وشيش وكباب', icon: 'skewer' },
+      { id: 'burgers', name: 'برجر', icon: 'layers' },
+      { id: 'steaks', name: 'ستيك وأضلاع', icon: 'flameKindling' },
+      { id: 'poultry', name: 'دجاج متبل', icon: 'utensils' },
+      { id: 'sauces', name: 'صوصات وتتبيلات', icon: 'droplet' }
+    ];
+
+    // ========================================================================
+    // 4. PRODUCT CATALOG (6 GATHERING BOXES + 14 INDIVIDUAL TRAYS & SAUCES)
+    // ========================================================================
+    const GATHERING_BOXES = [
+      {
+        id: 'box-jamr-kashta',
+        type: 'box',
+        category: 'boxes',
+        protein: 'mixed',
+        name: 'بوكس كشتة جمر',
+        price: 420,
+        servesLabel: 'يكفي ٦ - ٨ أشخاص',
+        weightLabel: '٣.٤ كجم صافي',
+        badge: 'الأكثر مبيعاً للكشتات',
+        badgeTone: 'ember',
+        image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1000&q=85',
+        summary: 'التوليفة المثالية لطلعة البر أو الاستراحة — تجمع أسياخ البلاك أنجوس والشيش والكباب مع برجر الواغيو والصوصات.',
+        contentsPills: [
+          '١٢ سيخ أوصال أنجوس',
+          '١٢ سيخ شيش طاووق',
+          '٨ أسياخ كباب نعيمي',
+          '٦ برجر واغيو بالخبز',
+          '٢ صوص جمر المدخن'
+        ],
+        fullBreakdown: [
+          'صحنان أوصال بلاك أنجوس متبل (١٢ سيخ • ١ كجم)',
+          'صحنان شيش طاووق بالزبادي والزعفران (١٢ سيخ • ١ كجم)',
+          'صحن كباب غنم نعيمي مفروم يومياً (٨ أسياخ • ٦٠٠ جم)',
+          '٦ قطع برجر واغيو (٨٠٠ جم) مع خبز بريوش البطاطس وشرائح الشيدر',
+          'عبوتان من صوص جمر المدخن وشيميتشوري الأعشاب الطازجة'
+        ],
+        grillTip: 'اشوِ الأوصال والبرجر لمدة ٤ - ٥ دقائق لكل وجه على جمر متوسط الهدوء، وقلّب أسياخ الكباب كل دقيقة.'
+      },
+      {
+        id: 'box-istiraha-royal',
+        type: 'box',
+        category: 'boxes',
+        protein: 'mixed',
+        name: 'بوكس الاستراحة الملكي',
+        price: 680,
+        servesLabel: 'يكفي ١٠ - ١٢ شخص',
+        weightLabel: '٥.٨ كجم صافي',
+        badge: 'وليمة الجمعات الكبيرة',
+        badgeTone: 'gold',
+        image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=85',
+        summary: 'وليمة متكاملة للجمعات الموسّعة تشمل قطع ستيك الريب آي الفاخرة وتشكيلة الأسياخ الكاملة والبرجر والأجنحة.',
+        contentsPills: [
+          '٢ ستيك ريب آي أنجوس',
+          '١٨ سيخ لحم وكباب',
+          '١٦ سيخ شيش طاووق',
+          '١٢ برجر واغيو بالخبز',
+          'صحن أجنحة مدخنة',
+          '٤ صوصات وزبدة'
+        ],
+        fullBreakdown: [
+          'قطعتان ستيك ريب آي بلاك أنجوس بتعريق رخامي عالي (٧٠٠ جم)',
+          '١٨ سيخ مشكل (أوصال لحم أنجوس + كباب غنم نعيمي طازج)',
+          '١٦ سيخ شيش طاووق طري بتتبيلة الليمون والزعفران',
+          '١٢ قرص برجر واغيو مع خبز البريوش والجبن المعتق',
+          'صحن أجنحة دجاج مدخنة جاهزة للشوي (٦٠٠ جم)',
+          '٤ عبوات صوص متنوعة + رول زبدة الثوم المشوي وإكليل الجبل'
+        ],
+        grillTip: 'ابدأ بتحمير قطع الريب آي على الجزء الأشد حرارة لمدة ٣ - ٤ دقائق لكل وجه ثم اتركها ترتاح ٥ دقائق قبل التقطيع.'
+      },
+      {
+        id: 'box-burger-gatherings',
+        type: 'box',
+        category: 'boxes',
+        protein: 'beef',
+        name: 'بوكس برجر الجمعات',
+        price: 245,
+        servesLabel: 'يكفي ٦ - ٨ أشخاص',
+        weightLabel: '١٢ قطعة • ١.٨ كجم لحم',
+        badge: 'شامل الخبز والإضافات',
+        badgeTone: 'ember',
+        image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=85',
+        summary: 'كل تفاصيل برجر الفحم المختص في بوكس واحد متكامل بدون الحاجة لشراء أي إضافات خارجية.',
+        contentsPills: [
+          '١٢ قرص أنجوس وواغيو',
+          '١٢ خبز بريوش بطاطس',
+          '١٢ شريحة شيدر معتق',
+          'بصل مكرمل وهالبينو',
+          '٢ صوص برجر جمر'
+        ],
+        fullBreakdown: [
+          '١٢ قطعة برجر مشكلة يدوياً من البلاك أنجوس والواغيو (١٥٠ جم للقطعة)',
+          '١٢ خبزة بريوش بطاطس طازجة للتحميص السريع على أطراف الشبكة',
+          '١٢ شريحة جبن شيدر إنجليزي معتق',
+          'علبة مربى البصل المكرمل + شرائح مخلل وهالبينو + عبوتان صوص جمر المدخن'
+        ],
+        grillTip: 'تجنب الضغط على قرص البرجر أثناء الشوي للاحتفاظ بالعصارة — ٤ دقائق لكل وجه وضع الجبن في الدقيقة الأخيرة.'
+      },
+      {
+        id: 'box-family-grill',
+        type: 'box',
+        category: 'boxes',
+        protein: 'mixed',
+        name: 'بوكس المشاوي العائلي',
+        price: 335,
+        servesLabel: 'يكفي ٥ - ٦ أشخاص',
+        weightLabel: '٢.٨ كجم صافي',
+        badge: 'خيار العائلة المفضل',
+        badgeTone: 'gold',
+        image: 'https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=1000&q=85',
+        summary: 'تشكيلة عائلية متوازنة ترضي الكبار والصغار من الأسياخ الطرية والريش ونصف الدجاج المسحب.',
+        contentsPills: [
+          '٨ أسياخ أوصال أنجوس',
+          '٨ أسياخ كباب نعيمي',
+          '٨ أسياخ شيش طاووق',
+          'نصف دجاجة مسحب',
+          '٢ صوص جمر'
+        ],
+        fullBreakdown: [
+          'صحن كبير أوصال لحم بلاك أنجوس طري (٨ أسياخ • ٧٠٠ جم)',
+          'صحن كباب غنم نعيمي مفروم طازج (٨ أسياخ • ٧٠٠ جم)',
+          'صحن شيش طاووق متبل بالزبادي (٨ أسياخ • ٧٠٠ جم)',
+          'نصف دجاجة مسحب مخلية العظم جاهزة لشبك الشوي (٧٠٠ جم)',
+          'عبوتان من صوصات جمر الطازجة'
+        ],
+        grillTip: 'ضع الدجاج المسحب في شبك الشوي المزدوج واقلبه كل ٤ دقائق لمدة ١٦ دقيقة حتى يتحمر بالتساوي.'
+      },
+      {
+        id: 'box-steak-chops',
+        type: 'box',
+        category: 'boxes',
+        protein: 'beef',
+        name: 'بوكس الستيك والريش الفاخر',
+        price: 365,
+        servesLabel: 'يكفي ٤ أشخاص',
+        weightLabel: '٢.٢ كجم صافي',
+        badge: 'قطعيات النخبة',
+        badgeTone: 'gold',
+        image: 'https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=1000&q=85',
+        summary: 'مخصص لعشاق القطعيات الرخامية الفاخرة وريش الغنم النعيمي مع زبدة الأعشاب وصوص الشيميتشوري.',
+        contentsPills: [
+          '٢ ريب آي بلاك أنجوس',
+          '٢ ستريبلوين نيويورك',
+          '٨ ريش غنم نعيمي',
+          'زبدة الثوم وإكليل الجبل',
+          'صوص شيميتشوري'
+        ],
+        fullBreakdown: [
+          'قطعتان ستيك ريب آي بلاك أنجوس (٧٠٠ جم إجمالي)',
+          'قطعتان ستيك نيويورك ستريبلوين (٦٤٠ جم إجمالي)',
+          'صحن ريش غنم نعيمي متبلة بالأعشاب الجبلية وزيت الزيتون (٨ قطع • ٦٠٠ جم)',
+          'رول زبدة الثوم المشوي وإكليل الجبل + عبوة صوص شيميتشوري طازج'
+        ],
+        grillTip: 'اشوِ الستيك ٣ - ٤ دقائق لكل وجه والريش ٣ دقائق لكل وجه، وأضف شريحة الزبدة فور رفعها عن الفحم.'
+      },
+      {
+        id: 'box-poultry-feast',
+        type: 'box',
+        category: 'boxes',
+        protein: 'chicken',
+        name: 'بوكس شوي الدجاج المتبل',
+        price: 195,
+        servesLabel: 'يكفي ٥ - ٦ أشخاص',
+        weightLabel: '٢.٩ كجم صافي',
+        badge: 'دجاج مبرد يومي',
+        badgeTone: 'ember',
+        image: 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=1000&q=85',
+        summary: 'تشكيلة دجاج محلي مبرد ١٠٠٪ بتتبيلات متنوعة جاهزة للمنقل لعشاق المشويات الخفيفة والطرية.',
+        contentsPills: [
+          '١٢ سيخ شيش طاووق',
+          '٢ نصف دجاجة مسحب',
+          '١٢ قطعة أجنحة مدخنة',
+          '٢ صوص ثوم وليمون'
+        ],
+        fullBreakdown: [
+          'صحنان شيش طاووق بالزبادي والزعفران (١٢ سيخ • ١ كجم)',
+          'قطعتان نصف دجاجة مسحب مخلية العظم بتتبيلة حلبية (١.٣ كجم)',
+          'صحن أجنحة دجاج مدخنة بالبابريكا والعسل البري (١٢ قطعة • ٦٠٠ جم)',
+          'عبوتان صوص الثوم الكريمي وتتبيلة الليمون والأعشاب'
+        ],
+        grillTip: 'يُشوى الدجاج على جمر هادئ إلى متوسط لمدة ١٢ - ١٦ دقيقة لضمان الاستواء الكامل وبقاء اللحم طرياً.'
+      }
+    ];
+
+    const INDIVIDUAL_TRAYS = [
+      // Skewers
+      {
+        id: 'tray-angus-awsal',
+        type: 'tray',
+        category: 'skewers',
+        protein: 'beef',
+        name: 'صحن أوصال بلاك أنجوس',
+        price: 78,
+        specPill: '٥٠٠ جم • ٦ أسياخ',
+        servesLabel: 'يكفي ٢ - ٣ أشخاص',
+        badge: 'طراوة استثنائية',
+        customizableSeasoning: true,
+        image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80',
+        summary: 'مكعبات منتقاة من فيليه وستريبلوين البلاك أنجوس مشكوكة في الأسياخ وجاهزة فوراً للشوي.',
+        grillTip: '٤ - ٥ دقائق لكل وجه على جمر متوسط للحصول على قلب طري وعصاري.'
+      },
+      {
+        id: 'tray-naimi-kabab',
+        type: 'tray',
+        category: 'skewers',
+        protein: 'lamb',
+        name: 'صحن كباب غنم نعيمي بلدي',
+        price: 68,
+        specPill: '٥٠٠ جم • ٧ أسياخ',
+        servesLabel: 'يكفي ٢ - ٣ أشخاص',
+        badge: 'فرم يومي طازج',
+        customizableSeasoning: true,
+        image: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&w=800&q=80',
+        summary: 'كباب غنم نعيمي مفروم يوم الطلب بنسبة دهن موزونة تمنع التفكك على الفحم وتمنح طعماً أصيلاً.',
+        grillTip: 'قلّب الأسياخ كل ٤٥ ثانية في أول ٣ دقائق حتى يتماسك الكباب حول السيخ.'
+      },
+      {
+        id: 'tray-lamb-chops',
+        type: 'tray',
+        category: 'skewers',
+        protein: 'lamb',
+        name: 'صحن ريش غنم نعيمي فاخرة',
+        price: 96,
+        specPill: '٥٠٠ جم • ٨ قطع',
+        servesLabel: 'يكفي ٢ - ٣ أشخاص',
+        badge: 'قطعية مختارة',
+        customizableSeasoning: true,
+        image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80',
+        summary: 'ريش غنم نعيمي طرية مشذبة بعناية لتستوي سريعاً على الجمر وتحتفظ بطراوتها.',
+        grillTip: '٣ - ٤ دقائق لكل وجه على جمر حيّ للحصول على تحمير ذهبي شهي.'
+      },
+
+      // Burgers
+      {
+        id: 'tray-wagyu-burger',
+        type: 'tray',
+        category: 'burgers',
+        protein: 'beef',
+        name: 'صحن برجر واغيو للشوي',
+        price: 74,
+        specPill: '٤ قطع • ٦٠٠ جم',
+        servesLabel: '١٥٠ جم للقطعة الواحدة',
+        badge: 'تعريق رخامي عالي',
+        customizableSeasoning: true,
+        image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80',
+        summary: 'أقراص برجر واغيو سميكة تمنحك قواماً عصارياً غنياً ونكهة شوي فحم لا تُضاهى.',
+        grillTip: '٤ دقائق لكل وجه على نار متوسطة دون الضغط على القرص بالملعقة.'
+      },
+      {
+        id: 'tray-angus-sliders',
+        type: 'tray',
+        category: 'burgers',
+        protein: 'beef',
+        name: 'صحن برجر بلاك أنجوس كلاسيك',
+        price: 64,
+        specPill: '٦ قطع • ٦٠٠ جم',
+        servesLabel: '١٠٠ جم للقطعة الواحدة',
+        badge: 'سريع التحضير',
+        customizableSeasoning: true,
+        image: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&q=80',
+        summary: 'ستة أقراص برجر بلاك أنجوس صافي مثالية للجمعات العائلية وساندويتشات البريوش.',
+        grillTip: '٣ دقائق لكل وجه فقط على جمر متوسط.'
+      },
+
+      // Steaks & Ribs
+      {
+        id: 'tray-ribeye-steak',
+        type: 'tray',
+        category: 'steaks',
+        protein: 'beef',
+        name: 'ستيك ريب آي بلاك أنجوس',
+        price: 115,
+        specPill: '٣٥٠ جم • سماكة ٣ سم',
+        servesLabel: 'قطعة ستيك فاخرة',
+        badge: 'درجة رخامية فاخرة',
+        customizableSeasoning: true,
+        image: 'https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=800&q=80',
+        summary: 'قطعة ريب آي غنية بالتعريق الدهني الذي يذوب فوق الجمر ليمنحك قشرة محمّرة وقلباً طرياً.',
+        grillTip: '٣ - ٤ دقائق لكل وجه على جمر حار، ثم تُترك لترتاح ٥ دقائق قبل التقطيع.'
+      },
+      {
+        id: 'tray-striploin-steak',
+        type: 'tray',
+        category: 'steaks',
+        protein: 'beef',
+        name: 'ستيك نيويورك ستريبلوين',
+        price: 98,
+        specPill: '٣٢٠ جم • قطعة سميكة',
+        servesLabel: 'يكفي ١ - ٢ شخص',
+        badge: 'نكهة لحم مركزة',
+        customizableSeasoning: true,
+        image: 'https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=800&q=80',
+        summary: 'قطعية نيويورك ستريب المتوازنة بحافة دهنية جانبية تضيف نكهة مدخنة غنية على الفحم.',
+        grillTip: '٣ - ٤ دقائق لكل وجه مع تحمير الحافة الدهنية لمدة ٣٠ ثانية.'
+      },
+      {
+        id: 'tray-short-ribs',
+        type: 'tray',
+        category: 'steaks',
+        protein: 'beef',
+        name: 'أضلاع شورت ريبس للشوي البطيء',
+        price: 138,
+        specPill: '١.٢ كجم • ٣ أضلاع كاملة',
+        servesLabel: 'يكفي ٣ - ٤ أشخاص',
+        badge: 'للتدخين والشوي الهادئ',
+        customizableSeasoning: true,
+        image: 'https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=800&q=80',
+        summary: 'أضلاع بقرية غنية باللحم مجهزة لعشاق التدخين والشوي غير المباشر على الفحم الهادئ.',
+        grillTip: 'تُشوى على حرارة هادئة غير مباشرة وتُغلف بورق الجزار للاحتفاظ بالعصارة.'
+      },
+
+      // Marinated Poultry
+      {
+        id: 'tray-shish-tawook',
+        type: 'tray',
+        category: 'poultry',
+        protein: 'chicken',
+        name: 'صحن شيش طاووق بالزعفران',
+        price: 42,
+        specPill: '٥٠٠ جم • ٦ أسياخ',
+        servesLabel: 'دجاج محلي مبرد',
+        badge: 'طراوة مضمونة',
+        customizableSeasoning: true,
+        image: 'https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?auto=format&fit=crop&w=800&q=80',
+        summary: 'قطع دجاج مبرد منقوعة في الزبادي اليوناني والزعفران والليمون، أو بدون تتبيل حسب رغبتك.',
+        grillTip: '٥ دقائق لكل وجه على جمر متوسط حتى تكتسب لوناً ذهبياً.'
+      },
+      {
+        id: 'tray-smoky-wings',
+        type: 'tray',
+        category: 'poultry',
+        protein: 'chicken',
+        name: 'صحن أجنحة دجاج للشوي',
+        price: 36,
+        specPill: '٦٠٠ جم • ١٢ قطعة',
+        servesLabel: 'يكفي ٢ - ٣ أشخاص',
+        badge: 'بداية السهرة',
+        customizableSeasoning: true,
+        image: 'https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&w=800&q=80',
+        summary: 'أجنحة دجاج طازجة مقسومة وجاهزة للشوي السريع وقرمشة الجلدة على أطراف المنقل.',
+        grillTip: '١٠ - ١٢ دقيقة على جمر معتدل مع التقليب المستمر كل دقيقتين.'
+      },
+      {
+        id: 'tray-boneless-chicken',
+        type: 'tray',
+        category: 'poultry',
+        protein: 'chicken',
+        name: 'نصف دجاجة مسحب للشبك',
+        price: 39,
+        specPill: '٦٥٠ جم • مخلي العظم',
+        servesLabel: 'يكفي ٢ أشخاص',
+        badge: 'مفرودة للشبك',
+        customizableSeasoning: true,
+        image: 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=800&q=80',
+        summary: 'نصف دجاجة مبردة مخلية تماماً من العظم ومفرودة لتستوي بالتساوي داخل شبك الشوي.',
+        grillTip: 'ضعها في الشبك المزدوج واقلبها كل ٤ دقائق لمدة ١٦ دقيقة.'
+      },
+
+      // Sauces & Butters
+      {
+        id: 'sauce-jamr-signature',
+        type: 'sauce',
+        category: 'sauces',
+        protein: 'all',
+        name: 'صوص جمر المدخن الخاص',
+        price: 19,
+        specPill: '٢٥٠ مل • عبوة محكمة',
+        servesLabel: 'للبرجر والأوصال',
+        badge: 'الأكثر طلباً',
+        customizableSeasoning: false,
+        image: 'https://images.unsplash.com/photo-1472476443507-c7a5948772fc?auto=format&fit=crop&w=800&q=80',
+        summary: 'مزيج كريمي مدخن متوازن مع الفلفل الأسود المجروش ولمسة دبس خفيفة تبرز طعم الفحم.',
+        grillTip: 'يُقدم بارداً للتغميس أو يُدهن داخل خبز البرجر المحمص.'
+      },
+      {
+        id: 'sauce-chimichurri',
+        type: 'sauce',
+        category: 'sauces',
+        protein: 'all',
+        name: 'صوص شيميتشوري الأعشاب الطازجة',
+        price: 24,
+        specPill: '٢٢٠ مل • تحضير يومي',
+        servesLabel: 'مثالي للستيك والريش',
+        badge: 'رفيق الستيك',
+        customizableSeasoning: false,
+        image: 'https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=800&q=80',
+        summary: 'أعشاب طازجة مفرومة يدوياً مع الثوم والأوريجانو وزيت الزيتون البكر لعشاق الستيك.',
+        grillTip: 'يُسكب فوق شرائح الستيك أو الريش فور تقطيعها للتقديم.'
+      },
+      {
+        id: 'sauce-herb-butter',
+        type: 'sauce',
+        category: 'sauces',
+        protein: 'all',
+        name: 'زبدة الثوم المشوي وإكليل الجبل',
+        price: 22,
+        specPill: '١٥٠ جم • رول زبدة منكهة',
+        servesLabel: 'تكفي ٤ - ٦ قطع ستيك',
+        badge: 'لمسة الشيف',
+        customizableSeasoning: false,
+        image: 'https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?auto=format&fit=crop&w=800&q=80',
+        summary: 'زبدة طبيعية مخفوقة مع فصوص الثوم المشوي وإكليل الجبل وملح البحر الخشن.',
+        grillTip: 'ضع شريحة فوق الستيك الساخن فور رفعه عن الجمر لتذوب فوقه.'
+      }
+    ];
+
+    const SEASONING_CHOICES = ['تتبيلة جمر الخاصة', 'ملح وفلفل فقط'];
+    const ALL_ITEMS = [...GATHERING_BOXES, ...INDIVIDUAL_TRAYS];
+
+    // ========================================================================
+    // 5. APPLICATION STATE
+    // ========================================================================
+    const state = {
+      darkMode: false, // Default Light Mode = Warm Craft Butcher
+      activeCategory: 'all',
+      proteinFilter: 'all',
+      searchQuery: '',
+      cardSeasoning: {}, // trayId -> selected seasoning pill
+      cart: {}, // cartKey -> { key, productId, seasoning, qty }
+      delivery: {
+        dayId: 'thursday',
+        windowId: 'slot2',
+        neighborhood: 'حي الملقا',
+        customerName: '',
+        customerPhone: '',
+        notes: ''
+      },
+      modalTempDay: 'thursday',
+      modalTempWindow: 'slot2',
+      invoicePreviewExpanded: false,
+      orderRef: generateArabicOrderRef()
+    };
+
+    // Set default seasoning choice on all customizable trays
+    INDIVIDUAL_TRAYS.forEach(item => {
+      if (item.customizableSeasoning) {
+        state.cardSeasoning[item.id] = SEASONING_CHOICES[0];
+      }
+    });
+
+    function generateArabicOrderRef() {
+      const num = Math.floor(1000 + Math.random() * 9000);
+      return toAr(num);
+    }
+
+    // ========================================================================
+    // 6. THEME SWITCHER (BUTCHER LIGHT <-> SMOKEHOUSE DARK)
+    // ========================================================================
+    function toggleTheme() {
+      state.darkMode = !state.darkMode;
+      syncThemeUI();
+      showToast(
+        state.darkMode ? 'تم تفعيل وضع المدخنة الليلي' : 'تم تفعيل وضع الجزارة النهاري',
+        state.darkMode ? 'flame' : 'sun'
+      );
+    }
+
+    function syncThemeUI() {
+      const root = document.documentElement;
+      const iconWrap = document.getElementById('themeIconWrap');
+      const labelEl = document.getElementById('themeLabelText');
+
+      if (state.darkMode) {
+        root.classList.add('dark');
+        iconWrap.innerHTML = svgIcon('sun', 'w-4 h-4 sm:w-5 sm:h-5');
+        labelEl.textContent = 'وضع الجزارة';
+      } else {
+        root.classList.remove('dark');
+        iconWrap.innerHTML = svgIcon('flame', 'w-4 h-4 sm:w-5 sm:h-5');
+        labelEl.textContent = 'وضع المدخنة';
+      }
+    }
+
+    // ========================================================================
+    // 7. CATEGORY TABS & SEARCH / PROTEIN FILTERING
+    // ========================================================================
+    function countItemsInCategory(catId) {
+      if (catId === 'all') return ALL_ITEMS.length;
+      if (catId === 'boxes') return GATHERING_BOXES.length;
+      return INDIVIDUAL_TRAYS.filter(i => i.category === catId).length;
+    }
+
+    function renderCategoryBar() {
+      const nav = document.getElementById('categoryFilterNav');
+      nav.innerHTML = CATEGORIES.map(cat => {
+        const active = state.activeCategory === cat.id;
+        const count = toAr(countItemsInCategory(cat.id));
+        return `
+          <button
+            onclick="setCategory('${cat.id}')"
+            type="button"
+            class="shrink-0 flex items-center gap-2 px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-extrabold border transition-all ${
+              active
+                ? 'bg-accent text-white border-transparent shadow-ember'
+                : 'surface-card text-token-primary border-token hover:border-token-strong'
+            }"
+          >
+            ${svgIcon(cat.icon, 'w-4 h-4')}
+            <span class="whitespace-nowrap">${cat.name}</span>
+            <span class="px-1.5 py-0.5 rounded-lg text-[10px] font-black ${
+              active ? 'bg-white/20 text-white' : 'surface-secondary text-token-muted'
+            }">${count}</span>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function setCategory(catId) {
+      state.activeCategory = catId;
+      renderCategoryBar();
+      renderStoreCatalog();
+    }
+
+    function jumpToCategory(catId) {
+      state.activeCategory = catId;
+      renderCategoryBar();
+      renderStoreCatalog();
+      document.getElementById('catalogStickyBar').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function jumpToTraysSection() {
+      state.activeCategory = 'all';
+      renderCategoryBar();
+      renderStoreCatalog();
+      document.getElementById('traysSection').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function handleSearchInput(val) {
+      state.searchQuery = val.trim().toLowerCase();
+      renderStoreCatalog();
+    }
+
+    function handleProteinChange(val) {
+      state.proteinFilter = val;
+      renderStoreCatalog();
+    }
+
+    function resetAllFilters() {
+      state.activeCategory = 'all';
+      state.proteinFilter = 'all';
+      state.searchQuery = '';
+      document.getElementById('searchCatalogInput').value = '';
+      document.getElementById('proteinSelect').value = 'all';
+      renderCategoryBar();
+      renderStoreCatalog();
+    }
+
+    function itemPassesFilter(item) {
+      if (state.activeCategory !== 'all' && item.category !== state.activeCategory) return false;
+      if (state.proteinFilter !== 'all' && item.protein !== 'all' && item.protein !== state.proteinFilter) return false;
+      if (state.searchQuery) {
+        const text = `${item.name} ${item.summary} ${(item.contentsPills || []).join(' ')}`.toLowerCase();
+        if (!text.includes(state.searchQuery)) return false;
+      }
+      return true;
+    }
+
+    // ========================================================================
+    // 8. RENDERING TWO-TIER MERCHANDISING CARDS
+    // ========================================================================
+    function makeCartKey(productId, seasoning) {
+      return `${productId}__${seasoning}`;
+    }
+
+    function getSelectionQty(productId, seasoning) {
+      const entry = state.cart[makeCartKey(productId, seasoning)];
+      return entry ? entry.qty : 0;
+    }
+
+    function renderStoreCatalog() {
+      const visibleBoxes = GATHERING_BOXES.filter(itemPassesFilter);
+      const visibleTrays = INDIVIDUAL_TRAYS.filter(itemPassesFilter);
+
+      const emptyBox = document.getElementById('emptyCatalogState');
+      const boxesSec = document.getElementById('boxesSection');
+      const traysSec = document.getElementById('traysSection');
+
+      if (visibleBoxes.length === 0 && visibleTrays.length === 0) {
+        emptyBox.classList.remove('hidden');
+        boxesSec.classList.add('hidden');
+        traysSec.classList.add('hidden');
+        return;
+      }
+
+      emptyBox.classList.add('hidden');
+
+      if (visibleBoxes.length > 0) {
+        boxesSec.classList.remove('hidden');
+        document.getElementById('boxesGrid').innerHTML = visibleBoxes.map(renderBoxCard).join('');
+      } else {
+        boxesSec.classList.add('hidden');
+      }
+
+      if (visibleTrays.length > 0) {
+        traysSec.classList.remove('hidden');
+        const activeCat = CATEGORIES.find(c => c.id === state.activeCategory);
+        document.getElementById('traysSectionHeading').textContent =
+          state.activeCategory === 'all' ? 'الصحون والأطباق الفردية' : activeCat.name;
+        document.getElementById('traysGrid').innerHTML = visibleTrays.map(renderTrayCard).join('');
+      } else {
+        traysSec.classList.add('hidden');
+      }
+    }
+
+    function renderBoxCard(box) {
+      const defaultBoxSeasoning = 'تتبيلة جمر المعتمدة للبوكس';
+      const qty = getSelectionQty(box.id, defaultBoxSeasoning);
+      const badgeClasses =
+        box.badgeTone === 'gold'
+          ? 'bg-[#B47B38] dark:bg-[#D4A359] text-white dark:text-[#12100E]'
+          : 'bg-accent text-white';
+
+      return `
+        <article class="surface-card border border-token rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-token-strong group">
+          <div>
+            <!-- High-Res Box Image + Badges -->
+            <div class="relative h-52 sm:h-56 overflow-hidden img-fallback-surface cursor-pointer" onclick="openProductModal('${box.id}')">
+              <img
+                src="${box.image}"
+                onerror="handleImgError(this)"
+                alt="${box.name}"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/15"></div>
+
+              <!-- Top Right Badge & Top Left Quick-View Eye -->
+              <div class="absolute top-3 right-3 left-3 flex items-center justify-between gap-2">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold shadow ${badgeClasses}">
+                  ${svgIcon('sparkles', 'w-3.5 h-3.5')}
+                  <span>${box.badge}</span>
+                </span>
+                <button
+                  onclick="event.stopPropagation(); openProductModal('${box.id}')"
+                  type="button"
+                  aria-label="تفاصيل البوكس"
+                  class="w-8 h-8 rounded-xl bg-black/60 backdrop-blur-md text-white flex items-center justify-center hover:bg-black/80 transition"
+                >
+                  ${svgIcon('eye', 'w-4 h-4')}
+                </button>
+              </div>
+
+              <!-- Bottom Headcount & Weight Badges -->
+              <div class="absolute bottom-3 right-3 left-3 flex flex-wrap items-center gap-1.5">
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-black/75 backdrop-blur-sm text-white text-[11px] font-bold">
+                  ${svgIcon('users', 'w-3.5 h-3.5 text-amber-300')}
+                  <span>${toAr(box.servesLabel)}</span>
+                </span>
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/95 text-[#1E1B18] text-[11px] font-extrabold shadow-sm">
+                  ${svgIcon('scale', 'w-3.5 h-3.5 text-[#8B261D]')}
+                  <span>${toAr(box.weightLabel)}</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Box Body -->
+            <div class="p-4 sm:p-5 pb-3">
+              <h3
+                onclick="openProductModal('${box.id}')"
+                class="font-heading text-lg sm:text-xl font-black text-token-primary cursor-pointer hover:text-accent transition mb-1.5"
+              >
+                ${box.name}
+              </h3>
+              <p class="text-xs sm:text-sm text-token-muted font-body leading-relaxed mb-3.5 line-clamp-2">
+                ${box.summary}
+              </p>
+
+              <!-- Itemized Contents Pills -->
+              <div class="flex flex-wrap gap-1.5 mb-3">
+                ${box.contentsPills.map(pill => `
+                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl surface-secondary border border-token text-[11px] font-bold text-token-primary">
+                    ${svgIcon('check', 'w-3 h-3 text-accent')}
+                    <span>${toAr(pill)}</span>
+                  </span>
+                `).join('')}
+              </div>
+
+              <button
+                onclick="openProductModal('${box.id}')"
+                type="button"
+                class="inline-flex items-center gap-1 text-xs font-extrabold text-accent hover:opacity-80 transition"
+              >
+                ${svgIcon('eye', 'w-3.5 h-3.5')}
+                <span>تفاصيل البوكس</span>
+                ${svgIcon('chevronLeft', 'w-3.5 h-3.5')}
+              </button>
+            </div>
+          </div>
+
+          <!-- Box Card Footer: Price & Instant Add / Stepper -->
+          <div class="px-4 sm:px-5 pb-4 sm:pb-5 pt-3 border-t border-token flex items-center justify-between gap-3">
+            <div>
+              <span class="block text-[10px] text-token-muted font-body">سعر البوكس الكامل</span>
+              <span class="font-heading text-xl sm:text-2xl font-black text-token-primary">
+                ${toAr(box.price)} <small class="text-xs font-extrabold text-accent">ر.س</small>
+              </span>
+            </div>
+
+            ${
+              qty === 0
+                ? `
+                  <button
+                    onclick="adjustCartItem('${box.id}', '${defaultBoxSeasoning}', 1)"
+                    type="button"
+                    class="px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl bg-accent text-white font-extrabold text-xs sm:text-sm shadow-ember hover:opacity-95 active:scale-95 transition flex items-center gap-1.5"
+                  >
+                    ${svgIcon('plus', 'w-4 h-4')}
+                    <span>أضف للسلة</span>
+                  </button>
+                `
+                : `
+                  <div class="flex items-center gap-2 surface-secondary border border-token-strong rounded-2xl p-1">
+                    <button
+                      onclick="adjustCartItem('${box.id}', '${defaultBoxSeasoning}', 1)"
+                      type="button"
+                      aria-label="زيادة الكمية"
+                      class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-accent text-white flex items-center justify-center"
+                    >${svgIcon('plus', 'w-4 h-4')}</button>
+                    <span class="min-w-[24px] text-center font-heading font-black text-sm text-token-primary">${toAr(qty)}</span>
+                    <button
+                      onclick="adjustCartItem('${box.id}', '${defaultBoxSeasoning}', -1)"
+                      type="button"
+                      aria-label="إنقاص الكمية"
+                      class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl surface-card border border-token text-token-primary flex items-center justify-center"
+                    >${svgIcon('minus', 'w-4 h-4')}</button>
+                  </div>
+                `
+            }
+          </div>
+        </article>
+      `;
+    }
+
+    function renderTrayCard(tray) {
+      const selectedSeasoning = tray.customizableSeasoning
+        ? state.cardSeasoning[tray.id]
+        : 'تحضير طازج معتمد';
+      const qty = getSelectionQty(tray.id, selectedSeasoning);
+
+      return `
+        <article class="surface-card border border-token rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-token-strong group">
+          <div>
+            <!-- Tray Visual -->
+            <div class="relative h-44 sm:h-48 overflow-hidden img-fallback-surface cursor-pointer" onclick="openProductModal('${tray.id}')">
+              <img
+                src="${tray.image}"
+                onerror="handleImgError(this)"
+                alt="${tray.name}"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/15"></div>
+
+              <div class="absolute top-3 right-3 left-3 flex items-center justify-between gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-black/65 backdrop-blur-md text-amber-200 border border-white/15 text-[10px] font-bold truncate">
+                  ${tray.badge}
+                </span>
+                <button
+                  onclick="event.stopPropagation(); openProductModal('${tray.id}')"
+                  type="button"
+                  aria-label="عرض التفاصيل"
+                  class="w-8 h-8 rounded-xl bg-black/60 backdrop-blur-md text-white flex items-center justify-center hover:bg-black/80 transition shrink-0"
+                >
+                  ${svgIcon('eye', 'w-4 h-4')}
+                </button>
+              </div>
+
+              <!-- Weight & Piece Spec Badge -->
+              <div class="absolute bottom-2.5 right-3 left-3 flex items-center justify-between">
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/95 text-[#1E1B18] text-[11px] font-extrabold shadow-sm">
+                  ${svgIcon('scale', 'w-3 h-3 text-[#8B261D]')}
+                  <span>${toAr(tray.specPill)}</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Tray Body -->
+            <div class="p-4 pb-2.5">
+              <div class="text-[11px] text-token-muted font-body mb-0.5">${toAr(tray.servesLabel)}</div>
+              <h3
+                onclick="openProductModal('${tray.id}')"
+                class="font-heading text-sm sm:text-base font-black text-token-primary cursor-pointer hover:text-accent transition line-clamp-1 mb-1"
+              >
+                ${tray.name}
+              </h3>
+              <p class="text-xs text-token-muted font-body line-clamp-2 leading-relaxed mb-3">
+                ${tray.summary}
+              </p>
+
+              <!-- 2-Option Seasoning Toggle Pill on Meat/Poultry Trays -->
+              ${
+                tray.customizableSeasoning
+                  ? `
+                    <div class="p-1 rounded-xl surface-secondary border border-token grid grid-cols-2 gap-1">
+                      ${SEASONING_CHOICES.map(choice => {
+                        const isChosen = selectedSeasoning === choice;
+                        return `
+                          <button
+                            onclick="setTraySeasoning('${tray.id}', '${choice}')"
+                            type="button"
+                            class="px-2 py-1.5 rounded-lg text-[10px] sm:text-[11px] font-extrabold transition text-center truncate ${
+                              isChosen
+                                ? 'surface-card text-accent shadow-sm border border-token'
+                                : 'text-token-muted hover:text-token-primary'
+                            }"
+                          >
+                            ${choice}
+                          </button>
+                        `;
+                      }).join('')}
+                    </div>
+                  `
+                  : `
+                    <div class="px-2.5 py-1.5 rounded-xl surface-secondary border border-token text-[11px] font-bold text-token-muted flex items-center gap-1.5">
+                      ${svgIcon('droplet', 'w-3.5 h-3.5 text-accent')}
+                      <span>يُحضر طازجاً يوم التسليم</span>
+                    </div>
+                  `
+              }
+            </div>
+          </div>
+
+          <!-- Tray Footer -->
+          <div class="px-4 pb-4 pt-2.5 border-t border-token flex items-center justify-between gap-2 mt-1.5">
+            <span class="font-heading text-lg font-black text-token-primary">
+              ${toAr(tray.price)} <small class="text-xs font-extrabold text-accent">ر.س</small>
+            </span>
+
+            ${
+              qty === 0
+                ? `
+                  <button
+                    onclick="adjustCartItem('${tray.id}', '${selectedSeasoning}', 1)"
+                    type="button"
+                    class="px-3.5 py-2 rounded-xl bg-accent text-white font-extrabold text-xs shadow-ember hover:opacity-95 active:scale-95 transition flex items-center gap-1"
+                  >
+                    ${svgIcon('plus', 'w-3.5 h-3.5')}
+                    <span>أضف للسلة</span>
+                  </button>
+                `
+                : `
+                  <div class="flex items-center gap-1.5 surface-secondary border border-token-strong rounded-xl p-1">
+                    <button
+                      onclick="adjustCartItem('${tray.id}', '${selectedSeasoning}', 1)"
+                      type="button"
+                      aria-label="زيادة"
+                      class="w-7 h-7 rounded-lg bg-accent text-white flex items-center justify-center"
+                    >${svgIcon('plus', 'w-3.5 h-3.5')}</button>
+                    <span class="min-w-[20px] text-center font-heading font-black text-xs text-token-primary">${toAr(qty)}</span>
+                    <button
+                      onclick="adjustCartItem('${tray.id}', '${selectedSeasoning}', -1)"
+                      type="button"
+                      aria-label="إنقاص"
+                      class="w-7 h-7 rounded-lg surface-card border border-token text-token-primary flex items-center justify-center"
+                    >${svgIcon('minus', 'w-3.5 h-3.5')}</button>
+                  </div>
+                `
+            }
+          </div>
+        </article>
+      `;
+    }
+
+    function setTraySeasoning(trayId, choice) {
+      state.cardSeasoning[trayId] = choice;
+      renderStoreCatalog();
+    }
+
+    // ========================================================================
+    // 9. PRODUCT QUICK-VIEW BOTTOM SHEET (MOBILE) / MODAL (DESKTOP)
+    // ========================================================================
+    function openProductModal(productId) {
+      const item = ALL_ITEMS.find(p => p.id === productId);
+      if (!item) return;
+
+      const isBox = item.type === 'box';
+      const activeSeasoning = isBox
+        ? 'تتبيلة جمر المعتمدة للبوكس'
+        : item.customizableSeasoning
+        ? state.cardSeasoning[item.id]
+        : 'تحضير طازج معتمد';
+
+      const card = document.getElementById('productQuickModalCard');
+      card.innerHTML = `
+        <!-- Mobile Sheet Handle -->
+        <div class="sm:hidden pt-2.5 pb-1 flex justify-center surface-card shrink-0">
+          <span class="w-10 h-1 rounded-full bg-stone-400/40"></span>
+        </div>
+
+        <div class="relative h-52 sm:h-64 img-fallback-surface shrink-0">
+          <img
+            src="${item.image}"
+            onerror="handleImgError(this)"
+            alt="${item.name}"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+          <button
+            onclick="closeProductModal()"
+            type="button"
+            aria-label="إغلاق"
+            class="absolute top-3.5 left-3.5 w-9 h-9 rounded-xl bg-black/65 text-white flex items-center justify-center hover:bg-black/85 transition"
+          >
+            ${svgIcon('x', 'w-4 h-4')}
+          </button>
+
+          <div class="absolute bottom-4 right-5 left-5 text-white">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E05A2B] text-[11px] font-extrabold mb-2">
+              ${svgIcon('sparkles', 'w-3.5 h-3.5')}
+              <span>${item.badge}</span>
+            </span>
+            <h3 class="font-heading text-xl sm:text-2xl font-black">${item.name}</h3>
+          </div>
+        </div>
+
+        <div class="p-5 overflow-y-auto space-y-4 flex-1">
+          <!-- Weight & Servings Specs -->
+          <div class="flex flex-wrap gap-2 text-xs font-bold">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl surface-secondary border border-token text-token-primary">
+              ${svgIcon('users', 'w-4 h-4 text-accent')}
+              <span>${toAr(item.servesLabel)}</span>
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl surface-secondary border border-token text-token-primary">
+              ${svgIcon('scale', 'w-4 h-4 text-accent')}
+              <span>${toAr(isBox ? item.weightLabel : item.specPill)}</span>
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl surface-secondary border border-token text-token-primary">
+              ${svgIcon('snowflake', 'w-4 h-4 text-accent')}
+              <span>مبرد طازج ٠ – ٤°م</span>
+            </span>
+          </div>
+
+          <p class="text-xs sm:text-sm text-token-muted font-body leading-relaxed">${item.summary}</p>
+
+          ${
+            isBox
+              ? `
+                <div class="surface-secondary border border-token rounded-2xl p-4 space-y-2">
+                  <h4 class="font-heading text-xs sm:text-sm font-extrabold text-token-primary flex items-center gap-1.5">
+                    ${svgIcon('box', 'w-4 h-4 text-accent')}
+                    <span>محتويات البوكس التفصيلية:</span>
+                  </h4>
+                  <ul class="space-y-2 text-xs sm:text-sm text-token-primary font-body">
+                    ${item.fullBreakdown.map(line => `
+                      <li class="flex items-start gap-2">
+                        <span class="text-accent mt-0.5">${svgIcon('check', 'w-4 h-4')}</span>
+                        <span>${toAr(line)}</span>
+                      </li>
+                    `).join('')}
+                  </ul>
+                </div>
+              `
+              : item.customizableSeasoning
+              ? `
+                <div>
+                  <h4 class="text-xs font-extrabold text-token-primary mb-2">اختر تتبيلة الصحن قبل الإضافة:</h4>
+                  <div class="grid grid-cols-2 gap-2">
+                    ${SEASONING_CHOICES.map(choice => {
+                      const active = activeSeasoning === choice;
+                      return `
+                        <button
+                          onclick="setTraySeasoning('${item.id}', '${choice}'); openProductModal('${item.id}');"
+                          type="button"
+                          class="p-3 rounded-xl border text-xs font-extrabold flex items-center justify-between transition ${
+                            active
+                              ? 'bg-accent-soft text-accent border-current'
+                              : 'surface-secondary text-token-primary border-token'
+                          }"
+                        >
+                          <span class="truncate">${choice}</span>
+                          ${active ? svgIcon('check', 'w-4 h-4') : ''}
+                        </button>
+                      `;
+                    }).join('')}
+                  </div>
+                </div>
+              `
+              : ''
+          }
+
+          <!-- Charcoal Grilling Tip (نصيحة الجمر) -->
+          <div class="p-4 rounded-2xl bg-accent-soft border border-token flex items-start gap-3">
+            <span class="text-accent mt-0.5">${svgIcon('flameKindling', 'w-5 h-5')}</span>
+            <div>
+              <h5 class="text-xs font-extrabold text-accent mb-0.5">نصيحة الجمر للشوي المثالي:</h5>
+              <p class="text-xs text-token-primary font-body leading-relaxed">${toAr(item.grillTip)}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 sm:p-5 border-t border-token surface-card flex items-center justify-between gap-4 shrink-0">
+          <div>
+            <span class="block text-[11px] text-token-muted">السعر</span>
+            <span class="font-heading text-xl sm:text-2xl font-black text-token-primary">
+              ${toAr(item.price)} <small class="text-xs font-extrabold text-accent">ر.س</small>
+            </span>
+          </div>
+          <button
+            onclick="adjustCartItem('${item.id}', '${activeSeasoning}', 1); closeProductModal();"
+            type="button"
+            class="px-6 py-3.5 rounded-2xl bg-accent text-white font-extrabold text-xs sm:text-sm shadow-ember hover:opacity-95 transition flex items-center gap-2"
+          >
+            ${svgIcon('plus', 'w-4 h-4')}
+            <span>أضف إلى سلة الشوي</span>
+          </button>
+        </div>
+      `;
+
+      const modal = document.getElementById('productQuickModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeProductModal() {
+      const modal = document.getElementById('productQuickModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // ========================================================================
+    // 10. CART MANAGEMENT, PROGRESS BAR & 1-TAP SAUCE UPSELLS
+    // ========================================================================
+    function adjustCartItem(productId, seasoning, delta) {
+      const item = ALL_ITEMS.find(p => p.id === productId);
+      if (!item) return;
+
+      const key = makeCartKey(productId, seasoning);
+      if (!state.cart[key]) {
+        if (delta <= 0) return;
+        state.cart[key] = { key, productId, seasoning, qty: 0 };
+      }
+
+      state.cart[key].qty += delta;
+
+      if (state.cart[key].qty <= 0) {
+        delete state.cart[key];
+      } else if (delta > 0) {
+        showToast(`تمت إضافة «${item.name}» إلى السلة`, 'check');
+      }
+
+      renderStoreCatalog();
+      refreshCartUI();
+    }
+
+    function deleteCartLine(key) {
+      delete state.cart[key];
+      renderStoreCatalog();
+      refreshCartUI();
+    }
+
+    function getCartSummary() {
+      const lines = Object.values(state.cart);
+      let count = 0;
+      let subtotal = 0;
+
+      lines.forEach(line => {
+        const prod = ALL_ITEMS.find(p => p.id === line.productId);
+        if (prod) {
+          count += line.qty;
+          subtotal += prod.price * line.qty;
+        }
+      });
+
+      const fee = subtotal === 0 ? 0 : subtotal >= FREE_DELIVERY_MIN ? 0 : DELIVERY_FEE;
+      const grandTotal = subtotal + fee;
+      const pct = Math.min(100, Math.round((subtotal / FREE_DELIVERY_MIN) * 100));
+      const remaining = Math.max(0, FREE_DELIVERY_MIN - subtotal);
+
+      return { lines, count, subtotal, fee, grandTotal, pct, remaining };
+    }
+
+    function refreshCartUI() {
+      const { lines, count, subtotal, fee, grandTotal, pct, remaining } = getCartSummary();
+
+      // 1. Sticky Header Cart Pill
+      document.getElementById('headerCartBadge').textContent = toAr(count);
+      document.getElementById('headerCartTotal').textContent = `${toAr(subtotal)} ر.س`;
+
+      // 2. Mobile Bottom Sticky Cart Bar (< 768px)
+      const mobileBar = document.getElementById('mobileBottomCartBar');
+      if (count > 0) {
+        mobileBar.classList.remove('hidden');
+        document.getElementById('mobileBarCountBadge').textContent = toAr(count);
+        document.getElementById('mobileBarTotal').textContent = `${toAr(grandTotal)} ر.س`;
+        document.getElementById('mobileBarProgressFill').style.width = `${pct}%`;
+        document.getElementById('mobileBarDeliveryPct').textContent = `${toAr(pct)}٪`;
+        document.getElementById('mobileBarDeliveryHint').textContent =
+          remaining === 0
+            ? 'طلبك مؤهل للتوصيل المبرد المجاني بالرياض'
+            : `أضف بقيمة ${toAr(remaining)} ر.س للتوصيل المبرد المجاني`;
+      } else {
+        mobileBar.classList.add('hidden');
+      }
+
+      // 3. Drawer Free Delivery Bar
+      document.getElementById('drawerSubCount').textContent =
+        count > 0 ? `${toAr(count)} أصناف مختارة للتجهيز الطازج` : 'توصيل مبرد داخل مدينة الرياض';
+      document.getElementById('drawerFreeShipFill').style.width = `${pct}%`;
+
+      if (subtotal > 0 && remaining === 0) {
+        document.getElementById('drawerFreeShipMsg').textContent = 'حصلت على توصيل مبرد مجاني داخل الرياض';
+        document.getElementById('drawerFreeShipBadge').textContent = 'مجاني';
+      } else if (subtotal > 0) {
+        document.getElementById('drawerFreeShipMsg').textContent = `متبقي ${toAr(remaining)} ر.س للحصول على توصيل مبرد مجاني`;
+        document.getElementById('drawerFreeShipBadge').textContent = `${toAr(DELIVERY_FEE)} ر.س`;
+      } else {
+        document.getElementById('drawerFreeShipMsg').textContent = `التوصيل المبرد مجاني للطلبات فوق ${toAr(FREE_DELIVERY_MIN)} ر.س`;
+        document.getElementById('drawerFreeShipBadge').textContent = `${toAr(DELIVERY_FEE)} ر.س`;
+      }
+
+      // 4. Drawer Empty vs Filled State
+      const emptyView = document.getElementById('drawerEmptyView');
+      const filledView = document.getElementById('drawerFilledView');
+      const footerView = document.getElementById('drawerFooter');
+
+      if (lines.length === 0) {
+        emptyView.classList.remove('hidden');
+        filledView.classList.add('hidden');
+        footerView.classList.add('hidden');
+        return;
+      }
+
+      emptyView.classList.add('hidden');
+      filledView.classList.remove('hidden');
+      footerView.classList.remove('hidden');
+
+      // Render Cart Item Rows
+      document.getElementById('drawerCartItems').innerHTML = lines.map(line => {
+        const prod = ALL_ITEMS.find(p => p.id === line.productId);
+        if (!prod) return '';
+        const lineSum = prod.price * line.qty;
+        return `
+          <div class="p-3 rounded-2xl surface-secondary border border-token flex items-center gap-3">
+            <div class="w-16 h-16 rounded-xl overflow-hidden img-fallback-surface shrink-0">
+              <img
+                src="${prod.image}"
+                onerror="handleImgError(this)"
+                alt="${prod.name}"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-start justify-between gap-1">
+                <h4 class="font-heading text-xs sm:text-sm font-extrabold text-token-primary truncate">${prod.name}</h4>
+                <button
+                  onclick="deleteCartLine('${line.key}')"
+                  type="button"
+                  aria-label="حذف الصنف"
+                  class="text-token-muted hover:text-red-600 p-1 transition shrink-0"
+                >
+                  ${svgIcon('trash', 'w-3.5 h-3.5')}
+                </button>
+              </div>
+              <div class="flex items-center gap-2 text-[11px] mt-0.5">
+                <span class="text-accent font-bold truncate">${line.seasoning}</span>
+                <span class="text-token-muted">•</span>
+                <span class="text-token-muted whitespace-nowrap">${toAr(prod.price)} ر.س</span>
+              </div>
+              <div class="flex items-center justify-between mt-2">
+                <span class="font-heading text-xs sm:text-sm font-black text-token-primary">${toAr(lineSum)} ر.س</span>
+                <div class="flex items-center gap-1.5 surface-card border border-token rounded-xl p-0.5">
+                  <button
+                    onclick="adjustCartItem('${prod.id}', '${line.seasoning}', 1)"
+                    type="button"
+                    aria-label="زيادة"
+                    class="w-6 h-6 rounded-lg bg-accent text-white flex items-center justify-center"
+                  >${svgIcon('plus', 'w-3 h-3')}</button>
+                  <span class="min-w-[20px] text-center text-xs font-black text-token-primary">${toAr(line.qty)}</span>
+                  <button
+                    onclick="adjustCartItem('${prod.id}', '${line.seasoning}', -1)"
+                    type="button"
+                    aria-label="إنقاص"
+                    class="w-6 h-6 rounded-lg surface-secondary text-token-primary flex items-center justify-center"
+                  >${svgIcon('minus', 'w-3 h-3')}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Render 1-Tap Sauce & Butter Upsells
+      const inCartIds = new Set(lines.map(l => l.productId));
+      const missingSauces = INDIVIDUAL_TRAYS.filter(i => i.category === 'sauces' && !inCartIds.has(i.id));
+      const upsellWrap = document.getElementById('drawerUpsellWrap');
+
+      if (missingSauces.length > 0) {
+        upsellWrap.classList.remove('hidden');
+        document.getElementById('drawerUpsellList').innerHTML = missingSauces.map(sauce => `
+          <div class="shrink-0 w-48 p-2.5 rounded-2xl surface-secondary border border-token flex items-center gap-2.5">
+            <div class="w-11 h-11 rounded-xl overflow-hidden img-fallback-surface shrink-0">
+              <img
+                src="${sauce.image}"
+                onerror="handleImgError(this)"
+                alt="${sauce.name}"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="min-w-0 flex-1">
+              <p class="text-[11px] font-bold text-token-primary truncate">${sauce.name}</p>
+              <div class="flex items-center justify-between mt-1">
+                <span class="text-[11px] font-extrabold text-accent">${toAr(sauce.price)} ر.س</span>
+                <button
+                  onclick="adjustCartItem('${sauce.id}', 'تحضير طازج معتمد', 1)"
+                  type="button"
+                  class="px-2 py-1 rounded-lg bg-accent text-white text-[10px] font-extrabold flex items-center gap-0.5"
+                >
+                  ${svgIcon('plus', 'w-3 h-3')}
+                  <span>أضف</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      } else {
+        upsellWrap.classList.add('hidden');
+      }
+
+      // Totals Footer
+      document.getElementById('drawerSubtotalVal').textContent = `${toAr(subtotal)} ر.س`;
+      document.getElementById('drawerDeliveryVal').textContent = fee === 0 ? `مجاني (${toAr(0)} ر.س)` : `${toAr(fee)} ر.س`;
+      document.getElementById('drawerGrandTotalVal').textContent = `${toAr(grandTotal)} ر.س`;
+
+      updateInvoicePreviewBox();
+    }
+
+    function openCartDrawer() {
+      syncDeliveryTextsEverywhere();
+      refreshCartUI();
+      document.getElementById('cartBackdrop').classList.remove('hidden');
+      document.getElementById('cartDrawer').classList.remove('-translate-x-full');
+    }
+
+    function closeCartDrawer() {
+      document.getElementById('cartBackdrop').classList.add('hidden');
+      document.getElementById('cartDrawer').classList.add('-translate-x-full');
+    }
+
+    // ========================================================================
+    // 11. RIYADH SCHEDULED DELIVERY SLOT PICKER LOGIC
+    // ========================================================================
+    function openSlotModal() {
+      state.modalTempDay = state.delivery.dayId;
+      state.modalTempWindow = state.delivery.windowId;
+      document.getElementById('slotDistrictInput').value = state.delivery.neighborhood;
+      renderSlotModalChoices();
+
+      const modal = document.getElementById('slotModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeSlotModal() {
+      const modal = document.getElementById('slotModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function renderSlotModalChoices() {
+      document.getElementById('slotDayGrid').innerHTML = DELIVERY_DAYS.map(day => {
+        const active = state.modalTempDay === day.id;
+        return `
+          <button
+            onclick="state.modalTempDay='${day.id}'; renderSlotModalChoices();"
+            type="button"
+            class="p-3 rounded-2xl border text-right transition ${
+              active
+                ? 'bg-accent text-white border-transparent shadow-ember'
+                : 'surface-secondary text-token-primary border-token'
+            }"
+          >
+            <span class="block text-xs sm:text-sm font-extrabold">${day.label}</span>
+            <span class="block text-[10px] sm:text-[11px] mt-0.5 ${active ? 'text-white/85' : 'text-token-muted'}">${day.note}</span>
+          </button>
+        `;
+      }).join('');
+
+      document.getElementById('slotWindowGrid').innerHTML = DELIVERY_WINDOWS.map(win => {
+        const active = state.modalTempWindow === win.id;
+        return `
+          <button
+            onclick="state.modalTempWindow='${win.id}'; renderSlotModalChoices();"
+            type="button"
+            class="p-3 rounded-2xl border text-right flex items-center justify-between gap-2 transition ${
+              active
+                ? 'bg-accent text-white border-transparent shadow-ember'
+                : 'surface-secondary text-token-primary border-token'
+            }"
+          >
+            <div class="flex items-center gap-2.5">
+              <span>${svgIcon('clock', 'w-4 h-4')}</span>
+              <div>
+                <span class="block text-xs sm:text-sm font-extrabold">${win.label}</span>
+                <span class="block text-[11px] ${active ? 'text-white/85' : 'text-token-muted'}">${win.desc}</span>
+              </div>
+            </div>
+            ${active ? svgIcon('check', 'w-4 h-4') : ''}
+          </button>
+        `;
+      }).join('');
+
+      const currentDistrict = document.getElementById('slotDistrictInput').value.trim();
+      document.getElementById('slotDistrictChips').innerHTML = RIYADH_DISTRICTS.map(dist => {
+        const selected = currentDistrict === dist;
+        return `
+          <button
+            onclick="document.getElementById('slotDistrictInput').value='${dist}'; renderSlotModalChoices();"
+            type="button"
+            class="px-2.5 py-1.5 rounded-xl text-[11px] font-bold border transition ${
+              selected
+                ? 'bg-accent-soft text-accent border-current'
+                : 'surface-secondary text-token-muted border-token hover:text-token-primary'
+            }"
+          >${dist}</button>
+        `;
+      }).join('');
+    }
+
+    function confirmSlotModal() {
+      state.delivery.dayId = state.modalTempDay;
+      state.delivery.windowId = state.modalTempWindow;
+      const typed = toAr(document.getElementById('slotDistrictInput').value.trim());
+      if (typed) state.delivery.neighborhood = typed;
+
+      syncDeliveryTextsEverywhere();
+      closeSlotModal();
+      showToast('تم حفظ موعد التوصيل المبرد بالرياض', 'snowflake');
+    }
+
+    function syncDeliveryTextsEverywhere() {
+      const dayObj = DELIVERY_DAYS.find(d => d.id === state.delivery.dayId) || DELIVERY_DAYS[0];
+      const winObj = DELIVERY_WINDOWS.find(w => w.id === state.delivery.windowId) || DELIVERY_WINDOWS[1];
+
+      // Desktop Header Pill
+      document.getElementById('desktopNeighborhoodText').textContent = state.delivery.neighborhood;
+      document.getElementById('desktopSlotText').textContent = `${dayObj.label} • ${winObj.label}`;
+
+      // Mobile Compact Header Row 2
+      const shortDay = dayObj.label.split('—')[0].trim();
+      document.getElementById('mobileNeighborhoodText').textContent = state.delivery.neighborhood;
+      document.getElementById('mobileSlotText').textContent = `${shortDay} • ${winObj.shortLabel}`;
+
+      // Sync Cart Drawer Input & Summary
+      const distField = document.getElementById('orderCustDistrict');
+      if (distField && (!distField.value || RIYADH_DISTRICTS.includes(distField.value) || distField.value === state.delivery.neighborhood)) {
+        distField.value = state.delivery.neighborhood;
+      }
+      document.getElementById('drawerSyncedSlotLabel').textContent = `${dayObj.label} • ${winObj.label}`;
+
+      updateInvoicePreviewBox();
+    }
+
+    function handleFormInput() {
+      state.delivery.customerName = toAr(document.getElementById('orderCustName').value.trim());
+      state.delivery.customerPhone = toAr(document.getElementById('orderCustPhone').value.trim());
+      const distVal = toAr(document.getElementById('orderCustDistrict').value.trim());
+      if (distVal) {
+        state.delivery.neighborhood = distVal;
+        document.getElementById('desktopNeighborhoodText').textContent = distVal;
+        document.getElementById('mobileNeighborhoodText').textContent = distVal;
+      }
+      state.delivery.notes = toAr(document.getElementById('orderCustNotes').value.trim());
+      document.getElementById('formValidationAlert').classList.add('hidden');
+      updateInvoicePreviewBox();
+    }
+
+    // ========================================================================
+    // 12. WHATSAPP INVOICE GENERATOR (ZERO EMOJIS, 100% EASTERN ARABIC NUMERALS)
+    // ========================================================================
+    function buildWhatsAppOrderText() {
+      const { lines, subtotal, fee, grandTotal } = getCartSummary();
+      const dayObj = DELIVERY_DAYS.find(d => d.id === state.delivery.dayId) || DELIVERY_DAYS[0];
+      const winObj = DELIVERY_WINDOWS.find(w => w.id === state.delivery.windowId) || DELIVERY_WINDOWS[1];
+
+      const custName = state.delivery.customerName || '(الاسم لم يُحدد)';
+      const custDistrict = state.delivery.neighborhood || '(الحي لم يُحدد)';
+
+      const output = [
+        `*طلب شوي جديد — متجر جمر | JAMR*`,
+        `رقم المرجع: #جمر-${toAr(state.orderRef)}`,
+        `────────────────────`,
+        `*بيانات العميل والتوصيل:*`,
+        `• الاسم: ${toAr(custName)}`,
+      ];
+
+      if (state.delivery.customerPhone) {
+        output.push(`• الجوال: ${toAr(state.delivery.customerPhone)}`);
+      }
+
+      output.push(`• المدينة والحي: الرياض — ${toAr(custDistrict)}`);
+      output.push(`• موعد التوصيل المبرد: ${toAr(dayObj.label)} (${toAr(winObj.label)})`);
+
+      if (state.delivery.notes) {
+        output.push(`• ملاحظات إضافية: ${toAr(state.delivery.notes)}`);
+      }
+
+      output.push(`────────────────────`);
+      output.push(`*الأصناف المطلوبة (جاهزة للشوي):*`);
+
+      lines.forEach((line, idx) => {
+        const prod = ALL_ITEMS.find(p => p.id === line.productId);
+        if (!prod) return;
+        const lineTotal = prod.price * line.qty;
+        output.push(`${toAr(idx + 1)}. *${toAr(prod.name)}* (الكمية: ${toAr(line.qty)}) — ${toAr(lineTotal)} ر.س`);
+        output.push(`   - التجهيز: ${toAr(line.seasoning)}`);
+      });
+
+      output.push(`────────────────────`);
+      output.push(`• المجموع الفرعي: ${toAr(subtotal)} ر.س`);
+      output.push(`• التوصيل المبرد بالرياض: ${fee === 0 ? `مجاني (${toAr(0)} ر.س)` : `${toAr(fee)} ر.س`}`);
+      output.push(`*الإجمالي النهائي: ${toAr(grandTotal)} ر.س*`);
+      output.push(`────────────────────`);
+      output.push(`نرجو تأكيد الطلب، وسأشارككم موقع التوصيل الدقيق.`);
+
+      return toAr(output.join('\n'));
+    }
+
+    function toggleInvoicePreview() {
+      state.invoicePreviewExpanded = !state.invoicePreviewExpanded;
+      const body = document.getElementById('invoicePreviewBody');
+      const label = document.getElementById('invoicePreviewToggleLabel');
+
+      if (state.invoicePreviewExpanded) {
+        body.classList.remove('hidden');
+        label.innerHTML = `<span>إخفاء</span>${svgIcon('chevronDown', 'w-3.5 h-3.5 rotate-180')}`;
+        updateInvoicePreviewBox();
+      } else {
+        body.classList.add('hidden');
+        label.innerHTML = `<span>عرض</span>${svgIcon('chevronDown', 'w-3.5 h-3.5')}`;
+      }
+    }
+
+    function updateInvoicePreviewBox() {
+      const pre = document.getElementById('invoicePreviewPre');
+      if (pre) pre.textContent = buildWhatsAppOrderText();
+    }
+
+    function copyInvoiceToClipboard() {
+      const invoiceText = buildWhatsAppOrderText();
+      const tempArea = document.createElement('textarea');
+      tempArea.value = invoiceText;
+      tempArea.style.position = 'fixed';
+      tempArea.style.opacity = '0';
+      document.body.appendChild(tempArea);
+      tempArea.select();
+      try {
+        document.execCommand('copy');
+        showToast('تم نسخ تفاصيل الطلب إلى الحافظة', 'copy');
+      } catch (e) {
+        showToast('يرجى تحديد النص ونسخه يدوياً', 'info');
+      }
+      document.body.removeChild(tempArea);
+    }
+
+    function submitWhatsAppOrder() {
+      handleFormInput();
+      const alertBox = document.getElementById('formValidationAlert');
+
+      if (!state.delivery.customerName || !state.delivery.neighborhood) {
+        alertBox.classList.remove('hidden');
+        document.getElementById('orderCustName').focus();
+        showToast('يرجى تعبئة الاسم الكريم والحي في الرياض أولاً', 'info');
+        return;
+      }
+
+      state.orderRef = generateArabicOrderRef();
+      const finalMessage = buildWhatsAppOrderText();
+      const waHref = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(finalMessage)}`;
+
+      document.getElementById('waDispatchPre').textContent = finalMessage;
+      document.getElementById('waDirectLink').href = waHref;
+
+      const dispatchModal = document.getElementById('waDispatchModal');
+      dispatchModal.classList.remove('hidden');
+      dispatchModal.classList.add('flex');
+
+      window.open(waHref, '_blank', 'noopener,noreferrer');
+    }
+
+    function closeWaDispatchModal() {
+      const dispatchModal = document.getElementById('waDispatchModal');
+      dispatchModal.classList.add('hidden');
+      dispatchModal.classList.remove('flex');
+    }
+
+    // ========================================================================
+    // 13. TOAST NOTIFICATION & INITIAL BOOTSTRAP
+    // ========================================================================
+    let toastTimeout = null;
+    function showToast(msg, iconKey = 'flame') {
+      const banner = document.getElementById('toastAlert');
+      document.getElementById('toastSvgHolder').innerHTML = svgIcon(iconKey, 'w-4 h-4');
+      document.getElementById('toastMessageText').textContent = toAr(msg);
+
+      banner.classList.remove('opacity-0', '-translate-y-2');
+      banner.classList.add('opacity-100', 'translate-y-0');
+
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        banner.classList.remove('opacity-100', 'translate-y-0');
+        banner.classList.add('opacity-0', '-translate-y-2');
+      }, 2500);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      syncThemeUI();
+      renderCategoryBar();
+      renderStoreCatalog();
+      syncDeliveryTextsEverywhere();
+      refreshCartUI();
+    });
+  </script>
+</body>
+</html>
