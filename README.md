@@ -17,6 +17,12 @@ npm run build
 
 The static site is generated in `dist/`.
 
+## Caching
+
+Cloudflare Pages reads `public/_headers`, which Vite copies into `dist/`. HTML and other stable URLs are not stored by the browser; Vite's content-hashed files under `/assets/` are cached for one year and invalidated automatically when their content changes. The asset rule explicitly replaces the broader no-store policy.
+
+Product photos and fonts are loaded from third-party providers, so their caching is controlled by those providers. The app has no service worker, API cache, or persisted cart.
+
 ## Cloudflare Pages
 
 The repository includes `wrangler.jsonc` with `dist/` as the Pages build output. In Cloudflare Pages, use:
