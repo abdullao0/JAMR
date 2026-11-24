@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+       DUAL-THEME DESIGN TOKENS
+       Default Light Mode: Warm Craft Butcher (#FAF6F0, #8B261D)
+       Toggleable Dark Mode: Dark Smokehouse Luxury (#12100E, #E05A2B, #D4A359)
+       ========================================================================== */
+    :root {
+      --bg-primary: #FAF6F0;
+      --bg-card: #FFFFFF;
+      --bg-secondary: #F3ECE1;
+      --bg-elevated: rgba(250, 246, 240, 0.92);
+      --border-subtle: #E6DDD0;
+      --border-strong: #D5C7B4;
+      --text-primary: #1E1B18;
+      --text-muted: #6B6259;
+      --accent-primary: #8B261D;
+      --accent-hover: #6E1D16;
+      --accent-soft: rgba(139, 38, 29, 0.08);
+      --accent-gold: #B47B38;
+      --accent-gold-soft: rgba(180, 123, 56, 0.12);
+      --shadow-card: 0 10px 28px -10px rgba(30, 27, 24, 0.08);
+      --shadow-ember: 0 10px 24px -6px rgba(139, 38, 29, 0.28);
+    }
+
+    html.dark {
+      --bg-primary: #12100E;
+      --bg-card: #1C1917;
+      --bg-secondary: #26221F;
+      --bg-elevated: rgba(18, 16, 14, 0.92);
+      --border-subtle: #332D29;
+      --border-strong: #473E39;
+      --text-primary: #F5EFE6;
+      --text-muted: #A89F95;
+      --accent-primary: #E05A2B;
+      --accent-hover: #C94B1F;
+      --accent-soft: rgba(224, 90, 43, 0.14);
+      --accent-gold: #D4A359;
+      --accent-gold-soft: rgba(212, 163, 89, 0.15);
+      --shadow-card: 0 14px 34px -10px rgba(0, 0, 0, 0.6);
+      --shadow-ember: 0 12px 28px -6px rgba(224, 90, 43, 0.34);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Cairo', 'Tajawal', sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Token Surface & Color Utilities */
+    .surface-primary { background-color: var(--bg-primary); }
+    .surface-card {
+      background-color: var(--bg-card);
+      border-color: var(--border-subtle);
+      box-shadow: var(--shadow-card);
+    }
+    .surface-secondary { background-color: var(--bg-secondary); }
+    .surface-glass {
+      background-color: var(--bg-elevated);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .border-token { border-color: var(--border-subtle); }
+    .border-token-strong { border-color: var(--border-strong); }
+    .text-token-primary { color: var(--text-primary); }
+    .text-token-muted { color: var(--text-muted); }
+
+    .bg-accent { background-color: var(--accent-primary); }
+    .bg-accent:hover { background-color: var(--accent-hover); }
+    .bg-accent-soft { background-color: var(--accent-soft); }
+    .text-accent { color: var(--accent-primary); }
+
+    .text-gold { color: var(--accent-gold); }
+    .bg-gold-soft { background-color: var(--accent-gold-soft); }
+    .shadow-ember { box-shadow: var(--shadow-ember); }
+
+    /* Fluid Responsive Typography */
+    .hero-title {
+      font-size: clamp(1.75rem, 3.8vw, 3.1rem);
+      line-height: 1.24;
+    }
+    .section-title {
+      font-size: clamp(1.35rem, 2.5vw, 1.95rem);
+      line-height: 1.3;
+    }
+
+    /* Hide Scrollbars on Horizontal Touch Strips */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Subtle Craft Grid Background */
+    .craft-dots {
+      background-image: radial-gradient(var(--border-subtle) 1px, transparent 1px);
+      background-size: 22px 22px;
+    }
+
+    /* Dynamic Viewport Height Helpers for Mobile Drawers & Sheets */
+    .h-dvh-screen {
+      height: 100vh;
+      height: 100dvh;
+    }
+    .max-h-sheet {
+      max-height: 90vh;
+      max-height: 90dvh;
+    }
+
+    /* Fallback Art Container When External Image Fails */
+    .img-fallback-surface {
+      background: linear-gradient(135deg, #2A1B17 0%, #171311 100%);
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(1.18); }
+    }
+    .live-pulse {
+      animation: pulseDot 2.2s ease-in-out infinite;
+    }
